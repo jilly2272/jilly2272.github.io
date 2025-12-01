@@ -46,19 +46,32 @@
     <meta name="robots" content="index, follow" />
     <!-- Google Site Verification for indexing -->
     <meta name="google-site-verification" content="_qxK8tePiU2fhnwlwnJ7pkDFnj1k2EiKq_cYGy1Cb84" />
+
+    <!-- Override Materialize default nav background -->
+    <style>
+        nav,
+        nav .nav-wrapper,
+        .side-nav.fixed,
+        .side-nav,
+        .trigger {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+        }
+
+        nav a,
+        .side-nav a {
+            color: #000000 !important;
+        }
+    </style>
+
 </head>
 
 <body
     style="margin:0;background-color:#f5f5f5;color:#000;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
 
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGZH8HT" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe>
-    </noscript>
-
     <!-- Navigation Menu-->
 
+    
     <!-- Desktop Sidebar Nav -->
     <nav class="hide-on-small-only" style="position:fixed;top:0;left:0;height:100vh;width:230px;
            background-color:#ffcc66;color:#000000;z-index:1000;">
@@ -77,8 +90,7 @@
                             height:120px !important;
                             border-radius:50%;
                             display:block;
-                            margin:0 auto 10px auto;
-                            float:none;">
+                            margin:0 auto 10px auto;">
                     <span style="display:block;font-weight:bold;margin-top:5px;">
                         Emily Patterson
                     </span>
@@ -86,36 +98,40 @@
             </li>
 
             <!-- ABOUT -->
-            <li class="bold" style="margin:0;display:block;width:100%;float:none;clear:both;">
-                <a aria-label="Navigate to About" href="#about" class="waves-effect waves-dark" style="display:block;width:100%;padding:12px 20px;
-                      color:#000000;text-decoration:none;">
+            <li class="bold" style="margin:0;">
+                <a href="#about" aria-label="Navigate to About" class="waves-effect waves-dark" style="display:flex;align-items:center;width:100%;
+                      padding:16px 20px;min-height:48px;
+                      color:#000000;text-decoration:none;font-size:1rem;">
                     <i class="mdi-social-person small" style="margin-right:10px;"></i>
                     <span>About</span>
                 </a>
             </li>
 
             <!-- PROJECTS -->
-            <li class="bold" style="margin:0;display:block;width:100%;float:none;clear:both;">
-                <a aria-label="Navigate to Projects" href="#projects" class="waves-effect waves-dark" style="display:block;width:100%;padding:12px 20px;
-                      color:#000000;text-decoration:none;">
+            <li class="bold" style="margin:0;">
+                <a href="#projects" aria-label="Navigate to Projects" class="waves-effect waves-dark" style="display:flex;align-items:center;width:100%;
+                      padding:16px 20px;min-height:48px;
+                      color:#000000;text-decoration:none;font-size:1rem;">
                     <i class="mdi-av-my-library-books small" style="margin-right:10px;"></i>
                     <span>Projects</span>
                 </a>
             </li>
 
             <!-- SKILLS -->
-            <li class="bold" style="margin:0;display:block;width:100%;float:none;clear:both;">
-                <a aria-label="Navigate to Skills" href="#skills" class="waves-effect waves-dark" style="display:block;width:100%;padding:12px 20px;
-                      color:#000000;text-decoration:none;">
+            <li class="bold" style="margin:0;">
+                <a href="#skills" aria-label="Navigate to Skills" class="waves-effect waves-dark" style="display:flex;align-items:center;width:100%;
+                      padding:16px 20px;min-height:48px;
+                      color:#000000;text-decoration:none;font-size:1rem;">
                     <i class="mdi-action-assessment small" style="margin-right:10px;"></i>
                     <span>Skills</span>
                 </a>
             </li>
 
             <!-- CONTACT -->
-            <li class="bold" style="margin:0;display:block;width:100%;float:none;clear:both;">
-                <a aria-label="Navigate to Contact" href="#contact" class="waves-effect waves-dark" style="display:block;width:100%;padding:12px 20px;
-                      color:#000000;text-decoration:none;">
+            <li class="bold" style="margin:0;">
+                <a href="#contact" aria-label="Navigate to Contact" class="waves-effect waves-dark" style="display:flex;align-items:center;width:100%;
+                      padding:16px 20px;min-height:48px;
+                      color:#000000;text-decoration:none;font-size:1rem;">
                     <i class="mdi-content-mail small" style="margin-right:10px;"></i>
                     <span>Contact</span>
                 </a>
@@ -124,55 +140,68 @@
         </ul>
     </nav>
 
+
     <!-- Mobile Top Nav -->
     <nav class="hide-on-large only trigger z-depth-1" style="position:fixed;top:0;left:0;right:0;height:56px;
             background-color:#ffcc66;color:#ffffff;
             display:flex;align-items:center;padding:0 10px;z-index:1000;">
+
         <a aria-label="Toggle visibility of the mobile navbar" href="#" data-activates="slide-out"
             class="button-collapse" style="color:#ffffff;display:inline-flex;align-items:center;
-              justify-content:center;margin-right:10px;">
-            <i class="mdi-navigation-menu"></i>
+              justify-content:center;margin-right:12px;">
+            <i class="mdi-navigation-menu" style="font-size:24px;"></i>
         </a>
+
         <div class="name-title" style="display:flex;flex-direction:column;line-height:1.2;">
             <a id="name" aria-label="Navigate to the beginning of the page" href="#intro"
-                style="color:#ffffff;font-weight:bold;text-decoration:none;">
+                style="color:#ffffff;font-weight:bold;text-decoration:none;font-size:1.1rem;">
                 Emily Patterson
             </a>
             <span style="color:#000000;font-size:0.85rem;">C# Unity Developer</span>
         </div>
     </nav>
 
+
     <!-- Mobile Side Nav -->
     <nav class="hide-on-large only">
-        <ul id="slide-out" class="side-nav table-of-contents" style="background-color:#ffcc66;padding-top:60px;">
+        <ul id="slide-out" class="side-nav table-of-contents"
+            style="background-color:#ffcc66;padding-top:60px;margin:0;">
 
+            <!-- ABOUT -->
             <li class="bold" style="margin:0;">
-                <a aria-label="Navigate to the About section" href="#about" class="waves-effect waves-dark" style="display:flex;align-items:center;padding:10px 16px;
-                      color:#ffffff;text-decoration:none;">
+                <a href="#about" aria-label="Navigate to About" class="waves-effect waves-dark" style="display:flex;align-items:center;
+                      padding:14px 18px;min-height:48px;
+                      color:#ffffff;text-decoration:none;font-size:1rem;">
                     <i class="mdi-social-person small" style="margin-right:10px;"></i>
                     <span>About</span>
                 </a>
             </li>
 
+            <!-- PROJECTS -->
             <li class="bold" style="margin:0;">
-                <a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark" style="display:flex;align-items:center;padding:10px 16px;
-                      color:#ffffff;text-decoration:none;">
+                <a href="#projects" aria-label="Navigate to Projects" class="waves-effect waves-dark" style="display:flex;align-items:center;
+                      padding:14px 18px;min-height:48px;
+                      color:#ffffff;text-decoration:none;font-size:1rem;">
                     <i class="mdi-av-my-library-books small" style="margin-right:10px;"></i>
                     <span>Projects</span>
                 </a>
             </li>
 
+            <!-- SKILLS -->
             <li class="bold" style="margin:0;">
-                <a aria-label="Navigate to the Skills section" href="#skills" class="waves-effect waves-dark" style="display:flex;align-items:center;padding:10px 16px;
-                      color:#ffffff;text-decoration:none;">
+                <a href="#skills" aria-label="Navigate to Skills" class="waves-effect waves-dark" style="display:flex;align-items:center;
+                      padding:14px 18px;min-height:48px;
+                      color:#ffffff;text-decoration:none;font-size:1rem;">
                     <i class="mdi-action-assessment small" style="margin-right:10px;"></i>
                     <span>Skills</span>
                 </a>
             </li>
 
+            <!-- CONTACT -->
             <li class="bold" style="margin:0;">
-                <a aria-label="Navigate to the Contact section" href="#contact" class="waves-effect waves-dark" style="display:flex;align-items:center;padding:10px 16px;
-                      color:#ffffff;text-decoration:none;">
+                <a href="#contact" aria-label="Navigate to Contact" class="waves-effect waves-dark" style="display:flex;align-items:center;
+                      padding:14px 18px;min-height:48px;
+                      color:#ffffff;text-decoration:none;font-size:1rem;">
                     <i class="mdi-content-mail small" style="margin-right:10px;"></i>
                     <span>Contact</span>
                 </a>
