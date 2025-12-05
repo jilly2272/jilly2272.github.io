@@ -49,15 +49,26 @@
     <meta name="google-site-verification" content="_qxK8tePiU2fhnwlwnJ7pkDFnj1k2EiKq_cYGy1Cb84" />
 
     <style>
+        /* Remove Materialize ripple flash in side nav */
         .side-nav li>a {
-            background-color: transparent !important;
-            transition: background-color 0.15s ease;
+            background: transparent !important;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent !important;
+            transition: background .15s;
         }
 
-        /* Set your golden hover color */
+        .side-nav li>a .waves-ripple {
+            display: none !important;
+        }
+
+        .waves-effect {
+            background: none !important;
+        }
+
         .side-nav li>a:hover,
         .side-nav li>a:focus {
-            background-color: #e6b85c !important;
+            background: #e6b85c !important;
         }
     </style>
 </head>
