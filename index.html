@@ -2,17 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Your Name | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name | Portfolio</title>
+
   <style>
     :root {
       --accent: #e6b85c;
-      --bg: #0f172a;
-      --bg-alt: #111827;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --card-bg: #020617;
-      --border-subtle: rgba(148, 163, 184, 0.25);
+      --bg: #ffffff;
+      --bg-soft: #faf7ef;
+      --text-dark: #2b2b2b;
+      --text-muted: #6f6f6f;
     }
 
     * {
@@ -22,34 +21,18 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      background: radial-gradient(circle at top left, #1f2933, #020617 50%);
-      color: var(--text);
-      min-height: 100vh;
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
       display: flex;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* Layout */
-
-    .page {
-      display: flex;
-      width: 100%;
       min-height: 100vh;
     }
 
     /* Sidebar (desktop) */
-
     .sidebar {
-      width: 260px;
-      padding: 2.5rem 1.75rem;
-      border-right: 1px solid var(--border-subtle);
-      background: linear-gradient(180deg, #020617 0%, #020617 40%, #111827 100%);
+      width: 250px;
+      background: var(--bg-soft);
+      padding: 2rem 1.5rem;
       position: sticky;
       top: 0;
       height: 100vh;
@@ -58,855 +41,325 @@
       gap: 2rem;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.9rem;
-    }
-
-    .brand-avatar {
-      width: 46px;
-      height: 46px;
-      border-radius: 999px;
-      border: 2px solid rgba(230, 184, 92, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.1rem;
-      background: radial-gradient(circle, rgba(230, 184, 92, 0.18), transparent);
-      color: var(--accent);
-    }
-
-    .brand-meta h1 {
-      font-size: 1.15rem;
+    .brand h1 {
+      font-size: 1.3rem;
       font-weight: 600;
     }
 
-    .brand-meta p {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .sidebar-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
+    .brand p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
     }
 
     .sidebar-nav a {
-      font-size: 0.92rem;
-      padding: 0.55rem 0.8rem;
-      border-radius: 999px;
-      color: var(--muted);
-      border: 1px solid transparent;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      cursor: pointer;
-      transition: background 0.15s ease, color 0.15s ease, border 0.15s ease,
-        transform 0.1s ease;
-    }
-
-    .sidebar-nav a::before {
-      content: "•";
-      font-size: 0.9rem;
-      color: rgba(230, 184, 92, 0.7);
-      transform: translateY(1px);
+      display: block;
+      padding: 0.6rem 0;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: 0.2s;
     }
 
     .sidebar-nav a:hover {
-      background: rgba(15, 23, 42, 0.8);
-      color: var(--text);
-      border-color: rgba(148, 163, 184, 0.4);
-      transform: translateX(2px);
+      color: var(--accent);
+      transform: translateX(3px);
     }
 
     .sidebar-footer {
       margin-top: auto;
-      font-size: 0.8rem;
-      color: var(--muted);
-      border-top: 1px dashed rgba(148, 163, 184, 0.35);
-      padding-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
 
     .sidebar-footer span {
       color: var(--accent);
     }
 
-    /* Top bar (mobile) */
-
+    /* Topbar for mobile */
     .topbar {
       display: none;
+      background: var(--bg-soft);
+      padding: 0.9rem 1rem;
       position: sticky;
       top: 0;
-      z-index: 30;
-      backdrop-filter: blur(12px);
-      background: linear-gradient(
-        90deg,
-        rgba(15, 23, 42, 0.95),
-        rgba(15, 23, 42, 0.8)
-      );
-      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
-      padding: 0.6rem 1rem;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .topbar-title {
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-      font-size: 0.96rem;
-      font-weight: 500;
-    }
-
-    .topbar-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 8px rgba(230, 184, 92, 0.9);
-    }
-
-    .topbar-nav {
-      display: flex;
-      gap: 0.25rem;
+      z-index: 50;
     }
 
     .topbar-nav a {
-      font-size: 0.8rem;
-      padding: 0.35rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      color: var(--muted);
+      margin-right: 1rem;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: var(--text-muted);
     }
 
     /* Main content */
-
     .content {
       flex: 1;
-      padding: 2.5rem 3.5rem;
-      max-width: 960px;
-      margin-left: auto;
-      margin-right: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
+      padding: 3rem 3rem;
+      max-width: 950px;
+      margin: 0 auto;
     }
 
     section {
-      scroll-margin-top: 80px;
-    }
-
-    .section-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--accent);
-      margin-bottom: 0.4rem;
+      margin-bottom: 4rem;
     }
 
     .section-title {
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
+      font-size: 1.9rem;
+      margin-bottom: 0.8rem;
     }
 
     .section-intro {
-      max-width: 46rem;
-      color: var(--muted);
-      font-size: 0.98rem;
-      line-height: 1.7;
-    }
-
-    /* Hero/About */
-
-    #about .hero {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-
-    .hero-headline {
-      font-size: 2.1rem;
-      line-height: 1.2;
-    }
-
-    .hero-highlight {
-      display: inline-block;
-      padding: 0.15rem 0.45rem;
-      border-radius: 999px;
-      background: rgba(230, 184, 92, 0.1);
-      border: 1px solid rgba(230, 184, 92, 0.4);
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--accent);
-      margin-bottom: 0.65rem;
-    }
-
-    .hero-subtitle {
-      color: var(--muted);
-      max-width: 42rem;
-      font-size: 1rem;
-      line-height: 1.7;
-    }
-
-    .hero-meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 0.5rem;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .hero-pill {
-      padding: 0.2rem 0.75rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-    }
-
-    /* Projects */
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.1rem;
-      margin-top: 1.4rem;
-    }
-
-    .card {
-      background: radial-gradient(
-          circle at top left,
-          rgba(230, 184, 92, 0.08),
-          transparent 55%
-        ),
-        var(--card-bg);
-      border-radius: 0.9rem;
-      padding: 1.1rem 1.1rem 1rem;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.85);
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.12s ease, box-shadow 0.12s ease,
-        border-color 0.12s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.95);
-      border-color: rgba(230, 184, 92, 0.7);
-    }
-
-    .card-tag {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: rgba(230, 184, 92, 0.9);
-    }
-
-    .card-title {
-      font-size: 1.05rem;
-      font-weight: 500;
-    }
-
-    .card-body {
-      font-size: 0.9rem;
-      color: var(--muted);
+      color: var(--text-muted);
+      max-width: 700px;
+      margin-bottom: 1.4rem;
       line-height: 1.6;
     }
 
-    .card-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 0.5rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      gap: 0.5rem;
-    }
-
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-    }
-
-    .chip {
-      padding: 0.15rem 0.5rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 0.7rem;
-    }
-
-    .card-link {
-      font-size: 0.8rem;
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .card-link span {
-      margin-left: 0.1rem;
-      font-size: 0.8em;
-    }
-
-    /* Skills section */
-
-    .skills-layout {
+    /* Project cards */
+    .cards-grid {
       display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.8fr);
-      gap: 1.5rem;
-      margin-top: 1.4rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.4rem;
     }
 
-    .skill-group-label {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.17em;
-      color: var(--muted);
+    .card {
+      background: white;
+      padding: 1.2rem 1.2rem 1.1rem;
+      border-radius: 0.9rem;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+    }
+
+    .card-tag {
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: bold;
       margin-bottom: 0.3rem;
     }
 
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
+    .card-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
     }
 
-    .skill-tag {
-      border-radius: 999px;
-      padding: 0.25rem 0.65rem;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      font-size: 0.8rem;
-    }
-
-    .skill-meter {
-      margin-bottom: 0.7rem;
-    }
-
-    .skill-meter-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.8rem;
-      margin-bottom: 0.25rem;
-      color: var(--muted);
-    }
-
-    .skill-meter-bar {
-      position: relative;
-      width: 100%;
-      height: 7px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      overflow: hidden;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-    }
-
-    .skill-meter-fill {
-      position: absolute;
-      inset: 0;
-      transform-origin: left;
-      background: linear-gradient(
-        90deg,
-        rgba(230, 184, 92, 0.2),
-        var(--accent),
-        rgba(230, 184, 92, 0.95)
-      );
-    }
-
-    /* Contact */
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
-      gap: 1.5rem;
-      margin-top: 1.4rem;
-    }
-
-    .contact-note {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-
-    .contact-note strong {
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    form {
-      display: grid;
-      gap: 0.8rem;
-    }
-
-    label {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-    }
-
-    input,
-    textarea {
-      width: 100%;
-      margin-top: 0.25rem;
-      padding: 0.6rem 0.7rem;
-      border-radius: 0.6rem;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--text);
-      font: inherit;
-      resize: vertical;
-      min-height: 42px;
-    }
-
-    input:focus,
-    textarea:focus {
-      outline: none;
-      border-color: rgba(230, 184, 92, 0.9);
-      box-shadow: 0 0 0 1px rgba(230, 184, 92, 0.5);
-    }
-
-    button {
-      margin-top: 0.6rem;
-      padding: 0.7rem 1.1rem;
-      border-radius: 999px;
-      border: none;
-      font: inherit;
+    .card-body {
+      color: var(--text-muted);
       font-size: 0.9rem;
-      font-weight: 500;
-      cursor: pointer;
-      background: var(--accent);
-      color: #1f2933;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.9);
-      transition: transform 0.1s ease, box-shadow 0.1s ease,
-        background 0.1s ease;
+      line-height: 1.5;
     }
 
-    button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 38px rgba(15, 23, 42, 1);
-    }
-
-    button span {
-      font-size: 0.85em;
-    }
-
-    .form-meta {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .form-meta strong {
+    .card-link {
+      display: inline-block;
+      margin-top: 0.6rem;
       color: var(--accent);
-    }
-
-    /* Footer (inside main) */
-
-    .main-footer {
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px dotted rgba(148, 163, 184, 0.4);
-      font-size: 0.8rem;
-      display: flex;
-      justify-content: space-between;
-      gap: 0.6rem;
-      color: var(--muted);
-    }
-
-    .main-footer a {
-      color: var(--accent);
-      font-weight: 500;
+      font-size: 0.85rem;
       text-decoration: none;
     }
 
+    /* Skills section */
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      padding: 0.35rem 0.7rem;
+      background: var(--bg-soft);
+      border-radius: 20px;
+      font-size: 0.85rem;
+    }
+
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    label {
+      font-size: 0.8rem;
+      margin-bottom: 0.3rem;
+      color: var(--text-muted);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.7rem;
+      border-radius: 8px;
+      border: none;
+      background: var(--bg-soft);
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    button {
+      background: var(--accent);
+      color: black;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+    }
+
     /* Responsive */
-
-    @media (max-width: 960px) {
-      body {
-        display: block;
-      }
-
-      .page {
-        flex-direction: column;
-      }
-
+    @media (max-width: 900px) {
       .sidebar {
         display: none;
       }
 
       .topbar {
-        display: flex;
+        display: block;
       }
 
       .content {
-        padding: 1.3rem 1.1rem 2.5rem;
+        padding: 2rem 1.5rem;
       }
 
-      .hero-headline {
-        font-size: 1.6rem;
-      }
-
-      .skills-layout,
       .contact-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    @media (max-width: 520px) {
-      .section-title {
-        font-size: 1.4rem;
-      }
-
-      .cards-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .main-footer {
-        flex-direction: column;
-        align-items: flex-start;
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="page">
-    <!-- Desktop sidebar -->
-    <aside class="sidebar">
-      <div class="brand">
-        <div class="brand-avatar">YP</div>
-        <div class="brand-meta">
-          <h1>Your Name</h1>
-          <p>Frontend &amp; EduTech Developer</p>
-        </div>
-      </div>
 
-      <nav class="sidebar-nav">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
+  <!-- Sidebar Desktop -->
+  <aside class="sidebar">
+    <div class="brand">
+      <h1>Your Name</h1>
+      <p>Frontend Developer</p>
+    </div>
 
-      <div class="sidebar-footer">
-        <p>
-          Available for <span>freelance</span> &amp; <span>remote</span> roles.
-        </p>
-      </div>
-    </aside>
+    <nav class="sidebar-nav">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-    <!-- Mobile / small-screen top bar -->
-    <header class="topbar">
-      <div class="topbar-title">
-        <div class="topbar-dot"></div>
-        <span>Your Name</span>
-      </div>
-      <nav class="topbar-nav">
-        <a href="#about">About</a>
-        <a href="#projects">Work</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Say hi</a>
-      </nav>
-    </header>
+    <div class="sidebar-footer">
+      Available for <span>freelance</span> and <span>remote</span> work.
+    </div>
+  </aside>
 
-    <!-- Main content -->
-    <main class="content">
-      <!-- About -->
-      <section id="about">
-        <div class="hero">
-          <div>
-            <span class="hero-highlight">Portfolio</span>
-            <h2 class="hero-headline">
-              I design and build thoughtful digital experiences.
-            </h2>
-          </div>
-          <p class="hero-subtitle">
-            I’m a developer focused on crafting clean interfaces, smooth
-            interactions and learning-driven products. I enjoy working on
-            projects where design, accessibility and engineering meet—often in
-            education and creative tooling.
+  <!-- Mobile Topbar -->
+  <header class="topbar">
+    <nav class="topbar-nav">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main class="content">
+
+    <!-- About -->
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-intro">
+        I’m a UI-focused frontend developer who loves clean layouts,
+        meaningful interactions, and building tools that help people learn.
+      </p>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-intro">
+        Some highlights of recent things I’ve built.
+      </p>
+
+      <div class="cards-grid">
+
+        <div class="card">
+          <div class="card-tag">Web App</div>
+          <h3 class="card-title">Learning Dashboard</h3>
+          <p class="card-body">
+            A clean UI to track courses, streaks and learning goals with accessible components.
           </p>
-          <div class="hero-meta-row">
-            <div class="hero-pill">Based in Your City</div>
-            <div class="hero-pill">Open to collaboration</div>
-          </div>
+          <a class="card-link" href="#">View Code →</a>
         </div>
-      </section>
 
-      <!-- Projects -->
-      <section id="projects">
-        <p class="section-label">Projects</p>
-        <h2 class="section-title">Selected work</h2>
-        <p class="section-intro">
-          A few projects that reflect how I think about UX, performance and
-          maintainable frontends. Links can point to GitHub repos, live demos or
-          case studies.
-        </p>
-
-        <div class="cards-grid">
-          <article class="card">
-            <div class="card-tag">Web app</div>
-            <h3 class="card-title">Interactive Learning Dashboard</h3>
-            <p class="card-body">
-              A responsive dashboard that helps students track progress,
-              streaks and goals across multiple courses with clean data
-              visualisations and accessible components.
-            </p>
-            <div class="card-meta">
-              <div class="chip-row">
-                <span class="chip">React</span>
-                <span class="chip">TypeScript</span>
-                <span class="chip">Charts</span>
-              </div>
-              <a
-                class="card-link"
-                href="https://github.com/yourusername/learning-dashboard"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View code <span>↗</span>
-              </a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-tag">Frontend</div>
-            <h3 class="card-title">Course Landing System</h3>
-            <p class="card-body">
-              A set of reusable templates for course landing pages with A/B
-              testing hooks, fast load times and a design system powered by a
-              single source of truth.
-            </p>
-            <div class="card-meta">
-              <div class="chip-row">
-                <span class="chip">Next.js</span>
-                <span class="chip">Design System</span>
-              </div>
-              <a
-                class="card-link"
-                href="https://github.com/yourusername/course-landing"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View code <span>↗</span>
-              </a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-tag">Experiment</div>
-            <h3 class="card-title">Micro-projects &amp; Components</h3>
-            <p class="card-body">
-              A collection of small UI experiments: animated buttons, loaders,
-              navigation patterns and onboarding flows focused on delightful but
-              subtle interactions.
-            </p>
-            <div class="card-meta">
-              <div class="chip-row">
-                <span class="chip">UI Library</span>
-                <span class="chip">Accessibility</span>
-              </div>
-              <a
-                class="card-link"
-                href="https://github.com/yourusername/ui-lab"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View code <span>↗</span>
-              </a>
-            </div>
-          </article>
+        <div class="card">
+          <div class="card-tag">Frontend</div>
+          <h3 class="card-title">Course Landing System</h3>
+          <p class="card-body">
+            A reusable template system designed for fast performance and great readability.
+          </p>
+          <a class="card-link" href="#">View Code →</a>
         </div>
-      </section>
 
-      <!-- Skills -->
-      <section id="skills">
-        <p class="section-label">Skills</p>
-        <h2 class="section-title">What I work with</h2>
-        <p class="section-intro">
-          I specialise in modern front-end stacks, with an eye on performance,
-          accessibility and clear storytelling through UI. Here’s a snapshot of
-          tools and focus areas.
-        </p>
-
-        <div class="skills-layout">
-          <div>
-            <p class="skill-group-label">Core stack</p>
-            <div class="skill-tags">
-              <span class="skill-tag">HTML5</span>
-              <span class="skill-tag">CSS3 / SCSS</span>
-              <span class="skill-tag">JavaScript (ES6+)</span>
-              <span class="skill-tag">TypeScript</span>
-              <span class="skill-tag">React</span>
-              <span class="skill-tag">Responsive design</span>
-              <span class="skill-tag">Accessibility (a11y)</span>
-            </div>
-
-            <p
-              class="skill-group-label"
-              style="margin-top: 1.1rem;"
-            >
-              Also familiar with
-            </p>
-            <div class="skill-tags">
-              <span class="skill-tag">Next.js</span>
-              <span class="skill-tag">Tailwind CSS</span>
-              <span class="skill-tag">Node.js</span>
-              <span class="skill-tag">REST APIs</span>
-              <span class="skill-tag">Git / GitHub</span>
-              <span class="skill-tag">Figma</span>
-            </div>
-          </div>
-
-          <div>
-            <div class="skill-meter">
-              <div class="skill-meter-label">
-                <span>UI implementation</span>
-                <span>Advanced</span>
-              </div>
-              <div class="skill-meter-bar">
-                <div
-                  class="skill-meter-fill"
-                  style="transform: scaleX(0.92);"
-                ></div>
-              </div>
-            </div>
-
-            <div class="skill-meter">
-              <div class="skill-meter-label">
-                <span>Design systems</span>
-                <span>Advanced</span>
-              </div>
-              <div class="skill-meter-bar">
-                <div
-                  class="skill-meter-fill"
-                  style="transform: scaleX(0.85);"
-                ></div>
-              </div>
-            </div>
-
-            <div class="skill-meter">
-              <div class="skill-meter-label">
-                <span>Performance &amp; optimisation</span>
-                <span>Intermediate</span>
-              </div>
-              <div class="skill-meter-bar">
-                <div
-                  class="skill-meter-fill"
-                  style="transform: scaleX(0.75);"
-                ></div>
-              </div>
-            </div>
-
-            <div class="skill-meter">
-              <div class="skill-meter-label">
-                <span>Backend &amp; tooling</span>
-                <span>Comfortable</span>
-              </div>
-              <div class="skill-meter-bar">
-                <div
-                  class="skill-meter-fill"
-                  style="transform: scaleX(0.6);"
-                ></div>
-              </div>
-            </div>
-          </div>
+        <div class="card">
+          <div class="card-tag">UI Lab</div>
+          <h3 class="card-title">Micro Components</h3>
+          <p class="card-body">
+            A set of UI micro-experiments exploring motion, accessibility and delightful UX.
+          </p>
+          <a class="card-link" href="#">View Code →</a>
         </div>
-      </section>
 
-      <!-- Contact -->
-      <section id="contact">
-        <p class="section-label">Contact</p>
-        <h2 class="section-title">Let’s work together</h2>
-        <div class="contact-grid">
-          <div>
-            <p class="contact-note">
-              The quickest way to reach me is by email at
-              <strong>you@example.com</strong>. You can also use this form to
-              share a bit about your project, timeline and budget.
-            </p>
-            <p
-              class="contact-note"
-              style="margin-top: 0.7rem;"
-            >
-              I’m especially interested in projects in
-              <strong>education</strong>, <strong>learning tools</strong>, and
-              <strong>developer experience</strong>.
-            </p>
-          </div>
-          <div>
-            <!--
-              For GitHub Pages, this can just be a static form.
-              If you use a service like Formspree, update the action attribute below.
-            -->
-            <form action="https://example.com" method="post">
-              <div>
-                <label for="name">Name</label>
-                <input id="name" name="name" type="text" placeholder="Your name" />
-              </div>
-              <div>
-                <label for="email">Email</label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="you@example.com"
-                />
-              </div>
-              <div>
-                <label for="message">Project / message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  placeholder="Tell me a little about what you’d like to build..."
-                ></textarea>
-              </div>
-              <button type="submit">
-                Send message <span>↗</span>
-              </button>
-              <p class="form-meta">
-                Prefer direct email? Contact me at <strong>you@example.com</strong>.
-              </p>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      <div class="main-footer">
-        <span>© <span id="year"></span> Your Name.</span>
-        <span>
-          Built for <a href="https://github.com">GitHub Pages</a>.
-        </span>
       </div>
-    </main>
-  </div>
+    </section>
 
-  <script>
-    // Set current year in footer
-    document.getElementById("year").textContent =
-      new Date().getFullYear().toString();
+    <!-- Skills -->
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-intro">A quick overview of what I work with regularly.</p>
 
-    // Smooth scroll for in-page links
-    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-      anchor.addEventListener("click", function (e) {
-        const targetId = this.getAttribute("href").slice(1);
-        const target = document.getElementById(targetId);
-        if (!target) return;
-        e.preventDefault();
-        window.scrollTo({
-          top: target.offsetTop - 60,
-          behavior: "smooth",
-        });
-      });
-    });
-  </script>
+      <div class="skill-tags">
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">UI/UX</span>
+        <span class="skill-tag">Figma</span>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+
+      <div class="contact-grid">
+        <div>
+          <p class="section-intro">
+            Want to build something together? Send me a message!
+          </p>
+        </div>
+
+        <form>
+          <label>Name</label>
+          <input type="text" />
+
+          <label>Email</label>
+          <input type="email" />
+
+          <label>Message</label>
+          <textarea rows="4"></textarea>
+
+          <button>Send Message</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
 </body>
 </html>
