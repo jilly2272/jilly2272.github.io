@@ -1,821 +1,912 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="UTF-8" />
+  <title>Your Name | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --accent: #e6b85c;
+      --bg: #0f172a;
+      --bg-alt: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --card-bg: #020617;
+      --border-subtle: rgba(148, 163, 184, 0.25);
+    }
 
-    <!-- Materialize - Compiled and minified CSS-->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css" />
-    <!-- Font Awesome Icon - CSS-->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <title>Emily Patterson | C# Unity Developer</title>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top left, #1f2933, #020617 50%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+    }
 
-    <!-- Open Graph-->
-    <meta property="og:locale" content="en_UK" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Emily Patterson | C# Unity Developer" />
-    <meta property="og:description" content="C# Unity Developer" />
-    <meta property="og:url" content="https://jilly2272.github.io/" />
-    <meta property="og:site_name" content="Emily Patterson | C# Unity Developer" />
-    <meta property="article:publisher" content="https://jilly2272.github.io/" />
-    <meta property="og:image" content="/assets/img/placeholder.png" />
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    <meta name="author" content="Emily Patterson" />
-    <meta name="description"
-        content="C# Unity Developer with a passion for backend development and artificial intelligence." />
-    <link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicon/apple-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicon/apple-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicon/apple-icon-76x76.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicon/apple-icon-114x114.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicon/apple-icon-120x120.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicon/apple-icon-152x152.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-icon-180x180.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon/android-icon-192x192.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon/favicon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png" />
-    <link rel="manifest" href="/assets/img/favicon/manifest.json" />
-    <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta name="msapplication-TileImage" content="/assets/img/favicon/ms-icon-144x144.png" />
-    <meta name="theme-color" content="#ffffff" />
-    <meta name="robots" content="index, follow" />
+    /* Layout */
 
-    <!-- Google Site Verification for indexing -->
-    <meta name="google-site-verification" content="_qxK8tePiU2fhnwlwnJ7pkDFnj1k2EiKq_cYGy1Cb84" />
+    .page {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+    }
 
-    <style>
-        /* Remove Materialize ripple flash in side nav */
-        .side-nav li>a {
-            background: transparent !important;
-            position: relative;
-            overflow: hidden;
-            -webkit-tap-highlight-color: transparent !important;
-            transition: background .15s;
-        }
+    /* Sidebar (desktop) */
 
-        .side-nav li>a .waves-ripple {
-            display: none !important;
-        }
+    .sidebar {
+      width: 260px;
+      padding: 2.5rem 1.75rem;
+      border-right: 1px solid var(--border-subtle);
+      background: linear-gradient(180deg, #020617 0%, #020617 40%, #111827 100%);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
 
-        .waves-effect {
-            background: none !important;
-        }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
 
-        .side-nav li>a:hover,
-        .side-nav li>a:focus {
-            background: #e6b85c !important;
-        }
-    </style>
+    .brand-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      border: 2px solid rgba(230, 184, 92, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      background: radial-gradient(circle, rgba(230, 184, 92, 0.18), transparent);
+      color: var(--accent);
+    }
+
+    .brand-meta h1 {
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .brand-meta p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .sidebar-nav a {
+      font-size: 0.92rem;
+      padding: 0.55rem 0.8rem;
+      border-radius: 999px;
+      color: var(--muted);
+      border: 1px solid transparent;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease, border 0.15s ease,
+        transform 0.1s ease;
+    }
+
+    .sidebar-nav a::before {
+      content: "•";
+      font-size: 0.9rem;
+      color: rgba(230, 184, 92, 0.7);
+      transform: translateY(1px);
+    }
+
+    .sidebar-nav a:hover {
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--text);
+      border-color: rgba(148, 163, 184, 0.4);
+      transform: translateX(2px);
+    }
+
+    .sidebar-footer {
+      margin-top: auto;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px dashed rgba(148, 163, 184, 0.35);
+      padding-top: 1rem;
+    }
+
+    .sidebar-footer span {
+      color: var(--accent);
+    }
+
+    /* Top bar (mobile) */
+
+    .topbar {
+      display: none;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(
+        90deg,
+        rgba(15, 23, 42, 0.95),
+        rgba(15, 23, 42, 0.8)
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 0.6rem 1rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .topbar-title {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.96rem;
+      font-weight: 500;
+    }
+
+    .topbar-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(230, 184, 92, 0.9);
+    }
+
+    .topbar-nav {
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    .topbar-nav a {
+      font-size: 0.8rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+    }
+
+    /* Main content */
+
+    .content {
+      flex: 1;
+      padding: 2.5rem 3.5rem;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    section {
+      scroll-margin-top: 80px;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-intro {
+      max-width: 46rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    /* Hero/About */
+
+    #about .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .hero-headline {
+      font-size: 2.1rem;
+      line-height: 1.2;
+    }
+
+    .hero-highlight {
+      display: inline-block;
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      background: rgba(230, 184, 92, 0.1);
+      border: 1px solid rgba(230, 184, 92, 0.4);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 0.65rem;
+    }
+
+    .hero-subtitle {
+      color: var(--muted);
+      max-width: 42rem;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .hero-pill {
+      padding: 0.2rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    /* Projects */
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.1rem;
+      margin-top: 1.4rem;
+    }
+
+    .card {
+      background: radial-gradient(
+          circle at top left,
+          rgba(230, 184, 92, 0.08),
+          transparent 55%
+        ),
+        var(--card-bg);
+      border-radius: 0.9rem;
+      padding: 1.1rem 1.1rem 1rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.85);
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        border-color 0.12s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.95);
+      border-color: rgba(230, 184, 92, 0.7);
+    }
+
+    .card-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(230, 184, 92, 0.9);
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+
+    .card-body {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      gap: 0.5rem;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .chip {
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.7rem;
+    }
+
+    .card-link {
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card-link span {
+      margin-left: 0.1rem;
+      font-size: 0.8em;
+    }
+
+    /* Skills section */
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.8fr);
+      gap: 1.5rem;
+      margin-top: 1.4rem;
+    }
+
+    .skill-group-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.17em;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .skill-tag {
+      border-radius: 999px;
+      padding: 0.25rem 0.65rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.8rem;
+    }
+
+    .skill-meter {
+      margin-bottom: 0.7rem;
+    }
+
+    .skill-meter-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      margin-bottom: 0.25rem;
+      color: var(--muted);
+    }
+
+    .skill-meter-bar {
+      position: relative;
+      width: 100%;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .skill-meter-fill {
+      position: absolute;
+      inset: 0;
+      transform-origin: left;
+      background: linear-gradient(
+        90deg,
+        rgba(230, 184, 92, 0.2),
+        var(--accent),
+        rgba(230, 184, 92, 0.95)
+      );
+    }
+
+    /* Contact */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+      gap: 1.5rem;
+      margin-top: 1.4rem;
+    }
+
+    .contact-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .contact-note strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    form {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      margin-top: 0.25rem;
+      padding: 0.6rem 0.7rem;
+      border-radius: 0.6rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text);
+      font: inherit;
+      resize: vertical;
+      min-height: 42px;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: rgba(230, 184, 92, 0.9);
+      box-shadow: 0 0 0 1px rgba(230, 184, 92, 0.5);
+    }
+
+    button {
+      margin-top: 0.6rem;
+      padding: 0.7rem 1.1rem;
+      border-radius: 999px;
+      border: none;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      background: var(--accent);
+      color: #1f2933;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.9);
+      transition: transform 0.1s ease, box-shadow 0.1s ease,
+        background 0.1s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 38px rgba(15, 23, 42, 1);
+    }
+
+    button span {
+      font-size: 0.85em;
+    }
+
+    .form-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .form-meta strong {
+      color: var(--accent);
+    }
+
+    /* Footer (inside main) */
+
+    .main-footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px dotted rgba(148, 163, 184, 0.4);
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 0.6rem;
+      color: var(--muted);
+    }
+
+    .main-footer a {
+      color: var(--accent);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 960px) {
+      body {
+        display: block;
+      }
+
+      .page {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .topbar {
+        display: flex;
+      }
+
+      .content {
+        padding: 1.3rem 1.1rem 2.5rem;
+      }
+
+      .hero-headline {
+        font-size: 1.6rem;
+      }
+
+      .skills-layout,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .section-title {
+        font-size: 1.4rem;
+      }
+
+      .cards-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .main-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
-
-<body
-    style="margin:0;background-color:#f5f5f5;color:#000;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
-
-    <!-- Navigation Menu-->
-
-    <!-- Desktop Sidebar Nav -->
-    <nav class="hide-on-small-only" style="position:fixed;top:0;left:0;height:100vh;width:230px;
-            background-color:#ffcc66;color:#000000;z-index:1000;border:none;">
-
-        <ul class="side-nav fixed" style="background-color:#ffcc66;
-               padding-top:30px;
-               padding-bottom:20px;
-               padding-left:0;
-               margin:0;
-               height:100%;
-               overflow-y:auto;
-               list-style:none;">
-
-            <!-- PROFILE / LOGO (no name) -->
-            <li class="logo" style="text-align:center;
-                   margin:0 0 25px 0;
-                   padding:0 0 20px 0;
-                   background-color:#ffcc66;
-                   border-bottom:1px solid rgba(0,0,0,0.08);">
-                <a id="logo-container" href="#intro" onmouseover="this.style.backgroundColor='transparent';"
-                    onmouseout="this.style.backgroundColor='transparent';" style="display:block;width:100%;
-                      text-decoration:none;
-                      background-color:transparent;
-                      padding:0;margin:0;">
-                    <img src="/assets/img/placeholder.png" alt="avatar" width="120" height="120" style="width:120px;height:120px;
-                            border-radius:50%;
-                            display:block;margin:0 auto;">
-                </a>
-            </li>
-
-            <!-- ABOUT -->
-            <li style="margin:0;padding:0;">
-                <a href="#about" style="display:flex;align-items:center;
-            width:100%;box-sizing:border-box;
-            padding:12px 24px;min-height:44px;
-            color:#000000;text-decoration:none;font-size:0.96rem;
-            background-color:transparent;">
-                    <i class="mdi-social-person small" style="margin-right:14px;font-size:1.2rem;"></i>
-                    <span>About</span>
-                </a>
-            </li>
-
-            <!-- PROJECTS -->
-            <li style="margin:0;padding:0;">
-                <a href="#projects" style="display:flex;align-items:center;
-            width:100%;box-sizing:border-box;
-            padding:12px 24px;min-height:44px;
-            color:#000000;text-decoration:none;font-size:0.96rem;
-            background-color:transparent;">
-                    <i class="mdi-av-my-library-books small" style="margin-right:14px;font-size:1.2rem;"></i>
-                    <span>Projects</span>
-                </a>
-            </li>
-
-            <!-- SKILLS -->
-            <li style="margin:0;padding:0;">
-                <a href="#skills" style="display:flex;align-items:center;
-            width:100%;box-sizing:border-box;
-            padding:12px 24px;min-height:44px;
-            color:#000000;text-decoration:none;font-size:0.96rem;
-            background-color:transparent;">
-                    <i class="mdi-action-assessment small" style="margin-right:14px;font-size:1.2rem;"></i>
-                    <span>Skills</span>
-                </a>
-            </li>
-
-            <!-- CONTACT -->
-            <li style="margin:0;padding:0;">
-                <a href="#contact" style="display:flex;align-items:center;
-            width:100%;box-sizing:border-box;
-            padding:12px 24px;min-height:44px;
-            color:#000000;text-decoration:none;font-size:0.96rem;
-            background-color:transparent;">
-                    <i class="mdi-content-mail small" style="margin-right:14px;font-size:1.2rem;"></i>
-                    <span>Contact</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-
-
-    <!-- Mobile Top Nav -->
-    <nav class="hide-on-large-only trigger z-depth-1" style="position:fixed;top:0;left:0;right:0;height:56px;
-            background-color:#ffcc66;
-            display:flex;align-items:center;padding:0 12px;
-            z-index:1000;border:none;">
-
-        <!-- Menu toggle -->
-        <a href="#" data-activates="slide-out" class="button-collapse"
-            onmouseover="this.style.backgroundColor='transparent';"
-            onmouseout="this.style.backgroundColor='transparent';" style="display:flex;align-items:center;justify-content:center;
-              color:#000000;text-decoration:none;
-              padding:8px;border-radius:4px;background-color:transparent;">
-            <i class="mdi-navigation-menu" style="font-size:26px;color:#000000;"></i>
-        </a>
-
-        <!-- Title -->
-        <div style="display:flex;flex-direction:column;margin-left:12px;line-height:1.2;">
-            <span style="color:#000000;font-weight:bold;font-size:1.1rem;">
-                Emily Patterson
-            </span>
-            <span style="color:#000000;font-size:0.85rem;">
-                C# Unity Developer
-            </span>
+<body>
+  <div class="page">
+    <!-- Desktop sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-avatar">YP</div>
+        <div class="brand-meta">
+          <h1>Your Name</h1>
+          <p>Frontend &amp; EduTech Developer</p>
         </div>
+      </div>
 
-    </nav>
+      <nav class="sidebar-nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-    <!-- Mobile Side Nav -->
-    <nav class="hide-on-large-only">
-        <ul id="slide-out" class="side-nav" style="background-color:#ffcc66;padding-top:60px;margin:0;
-               list-style:none;">
+      <div class="sidebar-footer">
+        <p>
+          Available for <span>freelance</span> &amp; <span>remote</span> roles.
+        </p>
+      </div>
+    </aside>
 
-            <!-- ABOUT -->
-            <li style="margin:0;padding:0;">
-                <a href="#about" style="display:flex;align-items:center;width:100%;
-            padding:14px 20px;min-height:48px;
-            box-sizing:border-box;
-            background-color:transparent;
-            color:#000000;text-decoration:none;font-size:1rem;">
-                    <i class="mdi-social-person small" style="margin-right:14px;"></i>
-                    <span>About</span>
-                </a>
-            </li>
+    <!-- Mobile / small-screen top bar -->
+    <header class="topbar">
+      <div class="topbar-title">
+        <div class="topbar-dot"></div>
+        <span>Your Name</span>
+      </div>
+      <nav class="topbar-nav">
+        <a href="#about">About</a>
+        <a href="#projects">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Say hi</a>
+      </nav>
+    </header>
 
-            <!-- PROJECTS -->
-            <li style="margin:0;padding:0;">
-                <a href="#projects" style="display:flex;align-items:center;width:100%;
-            padding:14px 20px;min-height:48px;
-            box-sizing:border-box;
-            background-color:transparent;
-            color:#000000;text-decoration:none;font-size:1rem;">
-                    <i class="mdi-av-my-library-books small" style="margin-right:14px;"></i>
-                    <span>Projects</span>
-                </a>
-            </li>
+    <!-- Main content -->
+    <main class="content">
+      <!-- About -->
+      <section id="about">
+        <div class="hero">
+          <div>
+            <span class="hero-highlight">Portfolio</span>
+            <h2 class="hero-headline">
+              I design and build thoughtful digital experiences.
+            </h2>
+          </div>
+          <p class="hero-subtitle">
+            I’m a developer focused on crafting clean interfaces, smooth
+            interactions and learning-driven products. I enjoy working on
+            projects where design, accessibility and engineering meet—often in
+            education and creative tooling.
+          </p>
+          <div class="hero-meta-row">
+            <div class="hero-pill">Based in Your City</div>
+            <div class="hero-pill">Open to collaboration</div>
+          </div>
+        </div>
+      </section>
 
-            <!-- SKILLS -->
-            <li style="margin:0;padding:0;">
-                <a href="#skills" style="display:flex;align-items:center;width:100%;
-            padding:14px 20px;min-height:48px;
-            box-sizing:border-box;
-            background-color:transparent;
-            color:#000000;text-decoration:none;font-size:1rem;">
-                    <i class="mdi-action-assessment small" style="margin-right:14px;"></i>
-                    <span>Skills</span>
-                </a>
-            </li>
+      <!-- Projects -->
+      <section id="projects">
+        <p class="section-label">Projects</p>
+        <h2 class="section-title">Selected work</h2>
+        <p class="section-intro">
+          A few projects that reflect how I think about UX, performance and
+          maintainable frontends. Links can point to GitHub repos, live demos or
+          case studies.
+        </p>
 
-            <!-- CONTACT -->
-            <li style="margin:0;padding:0;">
-                <a href="#contact" style="display:flex;align-items:center;width:100%;
-            padding:14px 20px;min-height:48px;
-            box-sizing:border-box;
-            background-color:transparent;
-            color:#000000;text-decoration:none;font-size:1rem;">
-                    <i class="mdi-content-mail small" style="margin-right:14px;"></i>
-                    <span>Contact</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-
-
-    <!-- Main Content-->
-    <main style="margin-left:230px;padding:0;" class="hide-on-small-only">
-        <!-- Intro Section -->
-        <section id="intro" class="section scrollspy full-height"
-            style="position:relative;min-height:100vh;padding:60px 20px;box-sizing:border-box;background-color:#ffffff;">
-            <div class="container" style="position:relative;z-index:1;max-width:960px;margin:0 auto;">
-                <div class="col-md-9" style="width:100%;">
-                    <div class="content section-padding valign" style="margin-left:5%;margin-top:50px;max-width:700px;">
-                        <div class="caption" style="margin-bottom:30px;">
-                            <h2 style="margin:0 0 10px 0;font-size:2.3rem;font-weight:600;">
-                                Hi, I'm <span style="background-color:#ffcc66;padding:0 6px;border-radius:3px;">Emily
-                                    Patterson.</span>
-                            </h2>
-                            <h5 style="color:#000000;margin:5px 0 15px 0;">
-                                A <span class="typing" style="font-weight:600;color:#ffcc66;"></span>
-                            </h5>
-                            <h5 style="margin:0;font-weight:400;">
-                                Self-driven, quick starter, passionate programmer with a curious mind who enjoys solving
-                                complex and challenging real-world problems.
-                            </h5>
-                        </div>
-                        <div class="social" style="margin:20px 0;">
-                            <a href="linkedin.com/in/emily-patterson-profile/" target="_blank"
-                                style="text-decoration:none;margin-right:10px;">
-                                <button class="icon-btn linkedin"
-                                    style="border:none;border-radius:50%;width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;background-color:#ffcc66;color:#ffffff;cursor:pointer;">
-                                    <i class="fa fa-linkedin"></i>
-                                </button>
-                            </a>
-                            <a href="https://github.com/jilly2272/" target="_blank" style="text-decoration:none;">
-                                <button class="icon-btn github"
-                                    style="border:none;border-radius:50%;width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;background-color:#333333;color:#ffffff;cursor:pointer;">
-                                    <i class="fa fa-github"></i>
-                                </button>
-                            </a>
-                        </div>
-                        <div class="buttons" style="margin-top:10px;">
-                            <a href="#about" class="readme"
-                                style="display:inline-block;margin-right:10px;padding:10px 20px;background-color:#ffcc66;color:#000000;border-radius:4px;text-decoration:none;font-weight:500;">
-                                Read More
-                            </a>
-                            <a href="#contact" class="contactme"
-                                style="display:inline-block;padding:10px 20px;background-color:#ffffff;color:#000000;border-radius:4px;text-decoration:none;border:1px solid #ffcc66;font-weight:500;">
-                                Contact Me
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <div class="cards-grid">
+          <article class="card">
+            <div class="card-tag">Web app</div>
+            <h3 class="card-title">Interactive Learning Dashboard</h3>
+            <p class="card-body">
+              A responsive dashboard that helps students track progress,
+              streaks and goals across multiple courses with clean data
+              visualisations and accessible components.
+            </p>
+            <div class="card-meta">
+              <div class="chip-row">
+                <span class="chip">React</span>
+                <span class="chip">TypeScript</span>
+                <span class="chip">Charts</span>
+              </div>
+              <a
+                class="card-link"
+                href="https://github.com/yourusername/learning-dashboard"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View code <span>↗</span>
+              </a>
             </div>
-        </section>
+          </article>
 
-        <!-- About Section -->
-        <section id="about" class="section scrollspy" style="padding:60px 20px 40px 20px;background-color:#f5f5f5;">
-            <h3 class="page-title"
-                style="margin:0 0 30px 0;padding:10px 16px;display:inline-block;background-color:#ffcc66;color:#000000;font-size:1.8rem;font-weight:600;border-radius:4px;">
-                About
-            </h3>
-            <div class="container flow-text" style="max-width:900px;margin:0 auto;font-size:1.05rem;line-height:1.7;">
-                <p>
-                    I am a Computer Science Grad Student at Arizona State University. I enjoy problem-solving and
-                    coding, and always strive to bring 100% to the work I do.
-                </p>
-                <p>
-                    I have worked on technologies like Python, Django, Flask, MySQL, PostgreSQL, MongoDB, HTML5, CSS,
-                    Java, and C++ during my bachelor's. I have 19 months of professional work experience which helped me
-                    strengthen my experience in Python, Flask, and Django.
-                </p>
-                <p>
-                    I am passionate about developing complex applications that solve real-world problems impacting
-                    millions of users.
-                </p>
-                <p>
-                <ul style="list-style-type:disc;padding-left:20px;">
-                    <li><b>Languages:</b> Python, Java, JavaScript, C, C++, HTML/CSS, Bash</li>
-                    <li><b>Databases:</b> MySQL, PostgreSQL, MongoDB</li>
-                    <li><b>Libraries:</b> NumPy, Pandas, OpenCV</li>
-                    <li><b>Frameworks:</b> Flask, Django, Node.js, Keras, TensorFlow, PyTorch, Bootstrap, Apache Beam
-                    </li>
-                    <li><b>Tools &amp; Technologies:</b> Git, Docker, AWS, GCP, Heroku, JIRA</li>
-                </ul>
-                </p>
-                <p>
-                    Looking for an opportunity to work in a challenging position combining my skills in Software
-                    Engineering, which provides professional development, interesting experiences and personal growth.
-                </p>
+          <article class="card">
+            <div class="card-tag">Frontend</div>
+            <h3 class="card-title">Course Landing System</h3>
+            <p class="card-body">
+              A set of reusable templates for course landing pages with A/B
+              testing hooks, fast load times and a design system powered by a
+              single source of truth.
+            </p>
+            <div class="card-meta">
+              <div class="chip-row">
+                <span class="chip">Next.js</span>
+                <span class="chip">Design System</span>
+              </div>
+              <a
+                class="card-link"
+                href="https://github.com/yourusername/course-landing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View code <span>↗</span>
+              </a>
             </div>
-        </section>
+          </article>
 
-        <!-- Projects Section -->
-        <section id="projects" class="section scrollspy" style="padding:60px 20px;background-color:#ffffff;">
-            <h3 class="page-title"
-                style="margin:0 0 30px 0;padding:10px 16px;display:inline-block;background-color:#ffcc66;color:#000000;font-size:1.8rem;font-weight:600;border-radius:4px;">
-                Projects
-            </h3>
-            <div class="container" style="max-width:1100px;margin:0 auto;">
-                <div class="row">
-
-                    <!-- Project 1 -->
-                    <div class="col s12 m6 l4" style="margin-bottom:20px;">
-                        <div class="card medium" style="height:100%;display:flex;flex-direction:column;">
-                            <div class="card-image waves-effect waves-block waves-light" style="overflow:hidden;">
-                                <img alt="music streaming app" src="/assets/img/placeholder.png"
-                                    style="height:100%;width:100%;object-fit:cover;" class="activator" />
-                            </div>
-                            <div class="card-content" style="flex:1 0 auto;">
-                                <span class="card-title activator hoverline" style="color:#ffcc66;cursor:pointer;">
-                                    Music Player Web-App
-                                    <i class="mdi-navigation-more-vert right"></i>
-                                </span>
-                                <p style="margin-top:8px;">
-                                    A music streaming web app based on Django.
-                                </p>
-                            </div>
-                            <div class="card-reveal" style="color:#000000;">
-                                <span class="card-title" style="color:#ffcc66;font-size:1.1rem;">
-                                    <small>Accomplishments</small>
-                                    <i class="mdi-navigation-close right"></i>
-                                </span>
-                                <ul style="list-style-type:disc;padding-left:20px;">
-                                    <li><b>Tools:</b> Django, HTML, CSS, Bootstrap, SQLite, AWS S3, Heroku</li>
-                                    <li>Register/login to the web app (with OAuth-based Google Sign-In).</li>
-                                    <li>Search and filter songs based on language and singer.</li>
-                                    <li>Create multiple playlists and add/remove songs to/from playlists.</li>
-                                    <li>Scroll through recently played/viewed songs.</li>
-                                </ul>
-                                <div class="card-action" style="border-top:1px solid #eee;padding:10px 16px;">
-                                    <a aria-label="Visit music app" href="https://galvanic-music.herokuapp.com/"
-                                        target="_blank" data-position="top" data-tooltip="View Online"
-                                        class="btn-floating btn-large waves-effect waves-light tooltipped"
-                                        style="background-color:#ffcc66;color:#ffffff;margin-right:10px;">
-                                        <i class="fa fa-external-link"></i>
-                                    </a>
-                                    <a aria-label="Visit the GitHub repo for project"
-                                        href="https://github.com/jilly2272/" target="_blank" data-position="top"
-                                        data-tooltip="View Source"
-                                        class="btn-floating btn-large waves-effect waves-light tooltipped"
-                                        style="background-color:#333333;color:#ffffff;">
-                                        <i class="fa fa-github"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="col s12 m6 l4" style="margin-bottom:20px;">
-                        <div class="card medium" style="height:100%;display:flex;flex-direction:column;">
-                            <div class="card-image waves-effect waves-block waves-light" style="overflow:hidden;">
-                                <img alt="quiz app" src="/assets/img/placeholder.png"
-                                    style="height:100%;width:100%;object-fit:cover;" class="activator" />
-                            </div>
-                            <div class="card-content" style="flex:1 0 auto;">
-                                <span class="card-title activator hoverline" style="color:#ffcc66;cursor:pointer;">
-                                    Quiz Web-App
-                                    <i class="mdi-navigation-more-vert right"></i>
-                                </span>
-                                <p style="margin-top:8px;">
-                                    A quiz playing web app based on Django.
-                                </p>
-                            </div>
-                            <div class="card-reveal" style="color:#000000;">
-                                <span class="card-title" style="color:#ffcc66;font-size:1.1rem;">
-                                    <small>Accomplishments</small>
-                                    <i class="mdi-navigation-close right"></i>
-                                </span>
-                                <ul style="list-style-type:disc;padding-left:20px;">
-                                    <li><b>Tools:</b> Django, HTML, CSS, Bootstrap, SQLite, Heroku</li>
-                                    <li>Register/login to the web app (with OAuth-based Google Sign-In).</li>
-                                    <li>Play quizzes and see the leaderboard.</li>
-                                </ul>
-                                <div class="card-action" style="border-top:1px solid #eee;padding:10px 16px;">
-                                    <a aria-label="Visit quiz app" href="https://quiz-up-app.herokuapp.com/"
-                                        target="_blank" data-position="top" data-tooltip="View Online"
-                                        class="btn-floating btn-large waves-effect waves-light tooltipped"
-                                        style="background-color:#ffcc66;color:#ffffff;margin-right:10px;">
-                                        <i class="fa fa-external-link"></i>
-                                    </a>
-                                    <a aria-label="Visit the GitHub repo for project"
-                                        href="https://github.com/jilly2272/" target="_blank" data-position="top"
-                                        data-tooltip="View Source"
-                                        class="btn-floating btn-large waves-effect waves-light tooltipped"
-                                        style="background-color:#333333;color:#ffffff;">
-                                        <i class="fa fa-github"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="col s12 m6 l4" style="margin-bottom:20px;">
-                        <div class="card medium" style="height:100%;display:flex;flex-direction:column;">
-                            <div class="card-image waves-effect waves-block waves-light" style="overflow:hidden;">
-                                <img alt="Screenshot of web app" src="/assets/img/placeholder.png"
-                                    style="height:100%;width:100%;object-fit:cover;" class="activator" />
-                            </div>
-                            <div class="card-content" style="flex:1 0 auto;">
-                                <span class="card-title activator hoverline" style="color:#ffcc66;cursor:pointer;">
-                                    Blog Web-App
-                                    <i class="mdi-navigation-more-vert right"></i>
-                                </span>
-                                <p style="margin-top:8px;">
-                                    A simple and extensible blog web-app based on Flask.
-                                </p>
-                            </div>
-                            <div class="card-reveal" style="color:#000000;">
-                                <span class="card-title" style="color:#ffcc66;font-size:1.1rem;">
-                                    <small>Accomplishments</small>
-                                    <i class="mdi-navigation-close right"></i>
-                                </span>
-                                <ul style="list-style-type:disc;padding-left:20px;">
-                                    <li><b>Tools:</b> HTML, CSS, Bootstrap, Flask, SQLAlchemy, Postgresql, Python</li>
-                                    <li>Users can view posts and contact the admin via Contact Page.</li>
-                                    <li>Admin can add, delete, and update posts.</li>
-                                </ul>
-                                <div class="card-action" style="border-top:1px solid #eee;padding:10px 16px;">
-                                    <a aria-label="Visit Blog website" href="https://flask-heroku-blog.herokuapp.com/"
-                                        target="_blank" data-position="top" data-tooltip="View Online"
-                                        class="btn-floating btn-large waves-effect waves-light tooltipped"
-                                        style="background-color:#ffcc66;color:#ffffff;margin-right:10px;">
-                                        <i class="fa fa-external-link"></i>
-                                    </a>
-                                    <a aria-label="Visit the GitHub repo for project"
-                                        href="https://github.com/jilly2272/" target="_blank" data-position="top"
-                                        data-tooltip="View Source"
-                                        class="btn-floating btn-large waves-effect waves-light tooltipped"
-                                        style="background-color:#333333;color:#ffffff;">
-                                        <i class="fa fa-github"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 4 -->
-                    <div class="col s12 m6 l4" style="margin-bottom:20px;">
-                        <div class="card medium" style="height:100%;display:flex;flex-direction:column;">
-                            <div class="card-image waves-effect waves-block waves-light" style="overflow:hidden;">
-                                <img alt="Screenshot of web app" src="/assets/img/placeholder.png"
-                                    style="height:100%;width:100%;object-fit:cover;" class="activator" />
-                            </div>
-                            <div class="card-content" style="flex:1 0 auto;">
-                                <span class="card-title activator hoverline" style="color:#ffcc66;cursor:pointer;">
-                                    Visual Question Answering
-                                    <i class="mdi-navigation-more-vert right"></i>
-                                </span>
-                                <p style="margin-top:8px;">
-                                    An attention-based classification model that aims at generating an answer for a
-                                    given input image.
-                                </p>
-                            </div>
-                            <div class="card-reveal" style="color:#000000;">
-                                <span class="card-title" style="color:#ffcc66;font-size:1.1rem;">
-                                    <small>Accomplishments</small>
-                                    <i class="mdi-navigation-close right"></i>
-                                </span>
-                                <ul style="list-style-type:disc;padding-left:20px;">
-                                    <li>Incorporated CNNs for extracting image features and LSTMs for extracting
-                                        question embeddings.</li>
-                                    <li>Tested the model on the COCO dataset and abstract scenes images; achieved 69%
-                                        overall accuracy on the VQA evaluation metric.</li>
-                                </ul>
-                                <div class="card-action" style="border-top:1px solid #eee;padding:10px 16px;">
-                                    <a aria-label="Visit the GitHub repo for project"
-                                        href="https://github.com/jilly2272/" target="_blank" data-position="top"
-                                        data-tooltip="View Source"
-                                        class="btn-floating btn-large waves-effect waves-light tooltipped"
-                                        style="background-color:#333333;color:#ffffff;">
-                                        <i class="fa fa-github"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 5 -->
-                    <div class="col s12 m6 l4" style="margin-bottom:20px;">
-                        <div class="card medium" style="height:100%;display:flex;flex-direction:column;">
-                            <div class="card-image waves-effect waves-block waves-light" style="overflow:hidden;">
-                                <img alt="Screenshot of web app" src="/assets/img/placeholder.png"
-                                    style="height:100%;width:100%;object-fit:cover;" class="activator" />
-                            </div>
-                            <div class="card-content" style="flex:1 0 auto;">
-                                <span class="card-title activator hoverline" style="color:#ffcc66;cursor:pointer;">
-                                    Video Summarizer
-                                    <i class="mdi-navigation-more-vert right"></i>
-                                </span>
-                                <p style="margin-top:8px;">
-                                    A Seq2Seq model that generates a short summary of the given input video.
-                                </p>
-                            </div>
-                            <div class="card-reveal" style="color:#000000;">
-                                <span class="card-title" style="color:#ffcc66;font-size:1.1rem;">
-                                    <small>Accomplishments</small>
-                                    <i class="mdi-navigation-close right"></i>
-                                </span>
-                                <ul style="list-style-type:disc;padding-left:20px;">
-                                    <li>Used CNN to detect and classify objects in the video frames and LSTMs for
-                                        generating a summary.</li>
-                                    <li>Evaluated the model on the MSVD dataset and achieved strong scores on ROUGE,
-                                        BLEU, and METEOR metrics.</li>
-                                </ul>
-                                <div class="card-action" style="border-top:1px solid #eee;padding:10px 16px;">
-                                    <a aria-label="Visit the GitHub repo for project"
-                                        href="https://github.com/jilly2272/" target="_blank" data-position="top"
-                                        data-tooltip="View Source"
-                                        class="btn-floating btn-large waves-effect waves-light tooltipped"
-                                        style="background-color:#333333;color:#ffffff;">
-                                        <i class="fa fa-github"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 6 -->
-                    <div class="col s12 m6 l4" style="margin-bottom:20px;">
-                        <div class="card medium" style="height:100%;display:flex;flex-direction:column;">
-                            <div class="card-image waves-effect waves-block waves-light" style="overflow:hidden;">
-                                <img alt="Screenshot of web app" src="/assets/img/placeholder.png"
-                                    style="height:100%;width:100%;object-fit:cover;" class="activator" />
-                            </div>
-                            <div class="card-content" style="flex:1 0 auto;">
-                                <span class="card-title activator hoverline" style="color:#ffcc66;cursor:pointer;">
-                                    Image Generator
-                                    <i class="mdi-navigation-more-vert right"></i>
-                                </span>
-                                <p style="margin-top:8px;">
-                                    An image generator based on the concept of adversarial networks (GANs).
-                                </p>
-                            </div>
-                            <div class="card-reveal" style="color:#000000;">
-                                <span class="card-title" style="color:#ffcc66;font-size:1.1rem;">
-                                    <small>Accomplishments</small>
-                                    <i class="mdi-navigation-close right"></i>
-                                </span>
-                                <ul style="list-style-type:disc;padding-left:20px;">
-                                    <li>Tested on a human-face database; loss measured by comparing PCAs of generated
-                                        and original images.</li>
-                                    <li>PCA differences were less than 10%, showing successful image generation.</li>
-                                </ul>
-                                <div class="card-action" style="border-top:1px solid #eee;padding:10px 16px;">
-                                    <a aria-label="Visit the GitHub repo for project"
-                                        href="https://github.com/jilly2272/" target="_blank" data-position="top"
-                                        data-tooltip="View Source"
-                                        class="btn-floating btn-large waves-effect waves-light tooltipped"
-                                        style="background-color:#333333;color:#ffffff;">
-                                        <i class="fa fa-github"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 7 -->
-                    <div class="col s12 m6 l4" style="margin-bottom:20px;">
-                        <div class="card medium" style="height:100%;display:flex;flex-direction:column;">
-                            <div class="card-image waves-effect waves-block waves-light" style="overflow:hidden;">
-                                <img alt="Screenshot of web app" src="/assets/img/placeholder.png"
-                                    style="height:100%;width:100%;object-fit:cover;" class="activator" />
-                            </div>
-                            <div class="card-content" style="flex:1 0 auto;">
-                                <span class="card-title activator hoverline" style="color:#ffcc66;cursor:pointer;">
-                                    Head Counting System
-                                    <i class="mdi-navigation-more-vert right"></i>
-                                </span>
-                                <p style="margin-top:8px;">
-                                    A system that calculates the attendance of a class from a panoramic image of a live
-                                    classroom.
-                                </p>
-                            </div>
-                            <div class="card-reveal" style="color:#000000;">
-                                <span class="card-title" style="color:#ffcc66;font-size:1.1rem;">
-                                    <small>Accomplishments</small>
-                                    <i class="mdi-navigation-close right"></i>
-                                </span>
-                                <ul style="list-style-type:disc;padding-left:20px;">
-                                    <li>Used Singular Value Decomposition for image compression and image processing
-                                        techniques to detect heads.</li>
-                                </ul>
-                                <div class="card-action" style="border-top:1px solid #eee;padding:10px 16px;">
-                                    <a aria-label="Visit the GitHub repo for project"
-                                        href="https://github.com/jilly2272/" target="_blank" data-position="top"
-                                        data-tooltip="View Source"
-                                        class="btn-floating btn-large waves-effect waves-light tooltipped"
-                                        style="background-color:#333333;color:#ffffff;">
-                                        <i class="fa fa-github"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+          <article class="card">
+            <div class="card-tag">Experiment</div>
+            <h3 class="card-title">Micro-projects &amp; Components</h3>
+            <p class="card-body">
+              A collection of small UI experiments: animated buttons, loaders,
+              navigation patterns and onboarding flows focused on delightful but
+              subtle interactions.
+            </p>
+            <div class="card-meta">
+              <div class="chip-row">
+                <span class="chip">UI Library</span>
+                <span class="chip">Accessibility</span>
+              </div>
+              <a
+                class="card-link"
+                href="https://github.com/yourusername/ui-lab"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View code <span>↗</span>
+              </a>
             </div>
-        </section>
+          </article>
+        </div>
+      </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="section scrollspy" style="padding:60px 20px;background-color:#f5f5f5;">
-            <h3 class="page-title"
-                style="margin:0 0 30px 0;padding:10px 16px;display:inline-block;background-color:#ffcc66;color:#000000;font-size:1.8rem;font-weight:600;border-radius:4px;">
-                Skills
-            </h3>
-            <div class="container" style="max-width:1100px;margin:0 auto;">
+      <!-- Skills -->
+      <section id="skills">
+        <p class="section-label">Skills</p>
+        <h2 class="section-title">What I work with</h2>
+        <p class="section-intro">
+          I specialise in modern front-end stacks, with an eye on performance,
+          accessibility and clear storytelling through UI. Here’s a snapshot of
+          tools and focus areas.
+        </p>
 
-                <!-- Languages and Databases -->
-                <div class="card" style="margin-bottom:20px;">
-                    <div class="card-content">
-                        <h4 style="margin-top:0;margin-bottom:15px;font-weight:400;color:#000000;">Languages and
-                            Databases</h4>
-                        <div class="row text-center" style="text-align:center;">
-                            <div class="col s4 m2" style="margin-bottom:15px;">
-                                <img alt="" src="/assets/img/placeholder.png" class="responsive-img" />Python
-                            </div>
-                            <div class="col s4 m2" style="margin-bottom:15px;">
-                                <img alt="" src="/assets/img/placeholder.png" class="responsive-img" />HTML5
-                            </div>
-                            <div class="col s4 m2" style="margin-bottom:15px;">
-                                <img alt="" src="/assets/img/placeholder.png" class="responsive-img" />CSS3
-                            </div>
-                            <div class="col s4 m2" style="margin-bottom:15px;">
-                                <img alt="" src="/assets/img/placeholder.png" class="responsive-img" />MySQL
-                            </div>
-                            <div class="col s4 m2" style="margin-bottom:15px;">
-                                <img alt="" src="/assets/img/placeholder.png" class="responsive-img" />PostgreSQL
-                            </div>
-                            <div class="col s4 m2" style="margin-bottom:15px;">
-                                <img alt="" src="/assets/img/placeholder.png" class="responsive-img" />Shell Scripting
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Libraries -->
-                <div class="card" style="margin-bottom:20px;">
-                    <div class="card-content">
-                        <h4 style="margin-top:0;margin-bottom:15px;font-weight:400;color:#000000;">Libraries</h4>
-                        <div class="row text-center" style="text-align:center;">
-                            <div class="col s4 m2" style="margin-bottom:15px;">
-                                <img alt="" src="/assets/img/placeholder.png" class="responsive-img" />NumPy
-                            </div>
-                            <div class="col s4 m2" style="margin-bottom:15px;">
-                                <img alt="" src="/assets/img/placeholder.png" class="responsive-img" />Pandas
-                            </div>
-                            <div class="col s4 m2" style="margin-bottom:15px;">
-                                <img alt="" src="/assets/img/placeholder.png" class="responsive-img" />OpenCV
-                            </div>
-                            <div class="col s4 m2" style="margin-bottom:15px;">
-                                <img alt="" src="/assets/img/placeholder.png" class="responsive-img" />scikit-learn
-                            </div>
-                            <div class="col s4 m2" style="margin-bottom:15px;">
-                                <img alt="" src="/assets/img/placeholder.png" class="responsive-img" />matplotlib
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Frameworks -->
-                <div class="card" style="margin-bottom:20px;">
-                    <div class="card-content">
-                        <h4 style="margin-top:0;margin-bottom:15px;font-weight:400;color:#000000;">Frameworks</h4>
-                        <div class="row text-center" style="text-align:center;">
-                            <div class="col s4 m2" style="margin-bottom:15px;">
-                                <img alt="" src="/assets/img/placeholder.png" class="responsive-img" />Django
-                            </div>
-                            <div class="col s4 m2" style="margin-bottom:15px;">
-                                <img alt="" src="/assets/img/placeholder.png" class="responsive-img" />Flask
-                            </div>
-                            <div class="col s4 m2" style="margin-bottom:15px;">
-                                <img alt="" src="/assets/img/placeholder.png" class="responsive-img" />Bootstrap
-                            </div>
-                            <div class="col s4 m2" style="margin-bottom:15px;">
-                                <img alt="" src="/assets/img/placeholder.png" class="responsive-img" />Keras
-                            </div>
-                            <div class="col s4 m2" style="margin-bottom:15px;">
-                                <img alt="" src="/assets/img/placeholder.png" class="responsive-img" />TensorFlow
-                            </div>
-                            <div class="col s4 m2" style="margin-bottom:15px;">
-                                <img alt="" src="/assets/img/placeholder.png" class="responsive-img" />PyTorch
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Other -->
-                <div class="card">
-                    <div class="card-content">
-                        <h4 style="margin-top:0;margin-bottom:15px;font-weight:400;color:#000000;">Other</h4>
-                        <div class="row text-center" style="text-align:center;">
-                            <div class="col s4 m2" style="margin-bottom:15px;">
-                                <img alt="" src="/assets/img/placeholder.png" class="responsive-img" />Git
-                            </div>
-                            <div class="col s4 m2" style="margin-bottom:15px;">
-                                <img alt="" src="/assets/img/placeholder.png" class="responsive-img" />AWS
-                            </div>
-                            <div class="col s4 m2" style="margin-bottom:15px;">
-                                <img alt="" src="/assets/img/placeholder.png" class="responsive-img" />Heroku
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+        <div class="skills-layout">
+          <div>
+            <p class="skill-group-label">Core stack</p>
+            <div class="skill-tags">
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">CSS3 / SCSS</span>
+              <span class="skill-tag">JavaScript (ES6+)</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Responsive design</span>
+              <span class="skill-tag">Accessibility (a11y)</span>
             </div>
-        </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="section scrollspy full-height"
-            style="padding:60px 20px 80px 20px;background-color:#ffffff;">
-            <h3 class="page-title"
-                style="margin:0 0 30px 0;padding:10px 16px;display:inline-block;background-color:#ffcc66;color:#000000;font-size:1.8rem;font-weight:600;border-radius:4px;">
-                Contact
-            </h3>
-            <div class="container" style="max-width:700px;margin:0 auto;font-size:1.05rem;">
-                <p style="margin-bottom:20px;">
-                    <a aria-label="View Emily on GitHub" href="http://github.com/jilly2272" target="_blank"
-                        data-position="top" data-tooltip="View Emily on GitHub"
-                        class="btn-floating btn-large waves-effect waves-light tooltipped"
-                        style="background-color:#333333;color:#ffffff;margin-right:10px;">
-                        <i class="fa fa-github"></i>
-                    </a>
-                    <a aria-label="Emily on Github" href="http://github.com/jilly2272" class="hoverline" target="_blank"
-                        style="color:#000000;text-decoration:underline;">
-                        github.com/jilly2272
-                    </a>
-                </p>
-                <p>
-                    <a aria-label="View Emily on LinkedIn" href="https://www.linkedin.com/in/emily-patterson-profile/"
-                        target="_blank" data-position="top" data-tooltip="View Emily on LinkedIn"
-                        class="btn-floating btn-large waves-effect waves-light tooltipped"
-                        style="background-color:#0077b5;color:#ffffff;margin-right:10px;">
-                        <i class="fa fa-linkedin"></i>
-                    </a>
-                    <a aria-label="Emily on LinkedIn" href="https://www.linkedin.com/in/emily-patterson-profile/"
-                        class="hoverline" target="_blank" style="color:#000000;text-decoration:underline;">
-                        linkedin.com/in/emily-patterson-profile/
-                    </a>
-                </p>
+            <p
+              class="skill-group-label"
+              style="margin-top: 1.1rem;"
+            >
+              Also familiar with
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">Next.js</span>
+              <span class="skill-tag">Tailwind CSS</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">REST APIs</span>
+              <span class="skill-tag">Git / GitHub</span>
+              <span class="skill-tag">Figma</span>
             </div>
-        </section>
+          </div>
+
+          <div>
+            <div class="skill-meter">
+              <div class="skill-meter-label">
+                <span>UI implementation</span>
+                <span>Advanced</span>
+              </div>
+              <div class="skill-meter-bar">
+                <div
+                  class="skill-meter-fill"
+                  style="transform: scaleX(0.92);"
+                ></div>
+              </div>
+            </div>
+
+            <div class="skill-meter">
+              <div class="skill-meter-label">
+                <span>Design systems</span>
+                <span>Advanced</span>
+              </div>
+              <div class="skill-meter-bar">
+                <div
+                  class="skill-meter-fill"
+                  style="transform: scaleX(0.85);"
+                ></div>
+              </div>
+            </div>
+
+            <div class="skill-meter">
+              <div class="skill-meter-label">
+                <span>Performance &amp; optimisation</span>
+                <span>Intermediate</span>
+              </div>
+              <div class="skill-meter-bar">
+                <div
+                  class="skill-meter-fill"
+                  style="transform: scaleX(0.75);"
+                ></div>
+              </div>
+            </div>
+
+            <div class="skill-meter">
+              <div class="skill-meter-label">
+                <span>Backend &amp; tooling</span>
+                <span>Comfortable</span>
+              </div>
+              <div class="skill-meter-bar">
+                <div
+                  class="skill-meter-fill"
+                  style="transform: scaleX(0.6);"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <p class="section-label">Contact</p>
+        <h2 class="section-title">Let’s work together</h2>
+        <div class="contact-grid">
+          <div>
+            <p class="contact-note">
+              The quickest way to reach me is by email at
+              <strong>you@example.com</strong>. You can also use this form to
+              share a bit about your project, timeline and budget.
+            </p>
+            <p
+              class="contact-note"
+              style="margin-top: 0.7rem;"
+            >
+              I’m especially interested in projects in
+              <strong>education</strong>, <strong>learning tools</strong>, and
+              <strong>developer experience</strong>.
+            </p>
+          </div>
+          <div>
+            <!--
+              For GitHub Pages, this can just be a static form.
+              If you use a service like Formspree, update the action attribute below.
+            -->
+            <form action="https://example.com" method="post">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="you@example.com"
+                />
+              </div>
+              <div>
+                <label for="message">Project / message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  placeholder="Tell me a little about what you’d like to build..."
+                ></textarea>
+              </div>
+              <button type="submit">
+                Send message <span>↗</span>
+              </button>
+              <p class="form-meta">
+                Prefer direct email? Contact me at <strong>you@example.com</strong>.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <div class="main-footer">
+        <span>© <span id="year"></span> Your Name.</span>
+        <span>
+          Built for <a href="https://github.com">GitHub Pages</a>.
+        </span>
+      </div>
     </main>
+  </div>
 
-    <!-- Main content for mobile (no left margin) -->
-    <main class="hide-on-med-and-up" style="margin-top:56px;">
-        <!-- Reuse the same sections but without left margin if you want;
-         for brevity, you could duplicate or simplify for mobile if needed. -->
-    </main>
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent =
+      new Date().getFullYear().toString();
 
-    <!-- typed.js -->
-    <script src="assets/vendor/typed.js/typed.min.js"></script>
-    <script type="text/javascript">
-        var typed = new Typed('.typing', {
-            strings: ["C# Developer", "Unity Developer", "Fast Learner", "Collaborator", "Dungeons and Dragons Enthusiast", "Gamer"],
-            loop: true,
-            typeSpeed: 80,
-            backSpeed: 40
+    // Smooth scroll for in-page links
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener("click", function (e) {
+        const targetId = this.getAttribute("href").slice(1);
+        const target = document.getElementById(targetId);
+        if (!target) return;
+        e.preventDefault();
+        window.scrollTo({
+          top: target.offsetTop - 60,
+          behavior: "smooth",
         });
-    </script>
-
-    <!-- jQuery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
-    <!-- Materialize - Compiled and minified JavaScript-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
-    <script>
-        // Materialize - Initializers
-        $(document).ready(function () {
-            $(".scrollspy").scrollSpy();
-            $(".button-collapse").sideNav({
-                menuWidth: 190,
-                edge: "left",
-                closeOnClick: true
-            });
-        });
-    </script>
+      });
+    });
+  </script>
 </body>
-
 </html>
