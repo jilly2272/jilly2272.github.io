@@ -7,78 +7,40 @@
 
   <style>
     :root {
-      --accent: #e6b85c;
-      --accent-soft: #fff3c9;
-      --bg: #fffdf7;
-      --bg-soft: #fff9e8;
+      --yellow: #e6b85c;
+      --yellow-light: #f7e2aa;
+      --bg: #ffffff;
+      --bg-soft: #faf8f2;
       --text-dark: #2b2b2b;
       --text-muted: #6f6f6f;
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #fff7da, #fffdf7 40%, #ffffff 100%);
+      font-family: system-ui, sans-serif;
+      display: flex;
+      background: var(--bg);
       color: var(--text-dark);
-      display: flex;
       min-height: 100vh;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* Layout */
-    .page {
-      display: flex;
-      width: 100%;
-      min-height: 100vh;
-    }
-
-    /* Sidebar (desktop) */
+    /* Sidebar */
     .sidebar {
-      width: 260px;
-      background: linear-gradient(180deg, #ffe9a4 0%, #e6b85c 40%, #f9f0ce 100%);
-      padding: 2.2rem 1.7rem;
+      width: 250px;
+      background: var(--yellow);
+      color: #2b2b2b;
+      padding: 2rem 1.5rem;
+      height: 100vh;
       position: sticky;
       top: 0;
-      height: 100vh;
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      color: #3d3112;
-      box-shadow: 8px 0 26px rgba(0, 0, 0, 0.05);
-    }
-
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .brand-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      padding: 0.18rem 0.6rem;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      background: rgba(255, 253, 247, 0.5);
-      border-radius: 999px;
-    }
-
-    .brand-label-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #ffffff;
     }
 
     .brand h1 {
@@ -91,37 +53,18 @@
       opacity: 0.8;
     }
 
-    .sidebar-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 0.15rem;
-    }
-
     .sidebar-nav a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.55rem 0.2rem;
-      font-size: 0.95rem;
-      opacity: 0.9;
-      cursor: pointer;
-      transition: transform 0.15s ease, opacity 0.15s ease, background 0.15s ease;
-      border-radius: 999px;
-    }
-
-    .sidebar-nav a::before {
-      content: "";
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: rgba(255, 253, 247, 0.6);
-      box-shadow: 0 0 0 3px rgba(255, 253, 247, 0.25);
+      display: block;
+      padding: 0.6rem 0;
+      font-size: 1rem;
+      text-decoration: none;
+      color: #2b2b2b;
+      transition: 0.2s;
     }
 
     .sidebar-nav a:hover {
-      transform: translateX(4px);
-      background: rgba(255, 253, 247, 0.25);
-      opacity: 1;
+      transform: translateX(5px);
+      font-weight: 600;
     }
 
     .sidebar-footer {
@@ -130,184 +73,91 @@
       opacity: 0.9;
     }
 
-    .sidebar-footer span {
-      font-weight: 600;
-    }
-
-    /* Topbar (mobile) */
+    /* Mobile top bar */
     .topbar {
       display: none;
+      background: var(--yellow);
+      padding: 0.9rem 1rem;
       position: sticky;
       top: 0;
-      z-index: 30;
-      background: rgba(255, 249, 232, 0.96);
-      padding: 0.9rem 1.1rem;
-      backdrop-filter: blur(14px);
-    }
-
-    .topbar-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .topbar-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .topbar-pill {
-      padding: 0.18rem 0.55rem;
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      background: var(--accent-soft);
-      border-radius: 999px;
-    }
-
-    .topbar-nav {
-      display: flex;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+      z-index: 50;
     }
 
     .topbar-nav a {
-      font-size: 0.8rem;
-      padding: 0.35rem 0.7rem;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: #4b3c11;
+      margin-right: 1rem;
+      text-decoration: none;
+      color: #2b2b2b;
+      font-weight: 500;
     }
 
     /* Main content */
     .content {
       flex: 1;
-      padding: 3rem 3.2rem;
-      max-width: 960px;
+      padding: 3rem;
+      max-width: 900px;
       margin: 0 auto;
     }
 
     section {
       margin-bottom: 4rem;
-      scroll-margin-top: 80px;
-    }
-
-    .section-label {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: #b88b1b;
-      margin-bottom: 0.3rem;
     }
 
     .section-title {
       font-size: 2rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .section-intro {
-      color: var(--text-muted);
-      max-width: 720px;
-      line-height: 1.7;
-      margin-bottom: 1.4rem;
-    }
-
-    /* About */
-    #about-hero {
-      background: var(--accent-soft);
-      padding: 1.7rem 1.6rem;
-      border-radius: 1.3rem;
-      box-shadow: 0 14px 32px rgba(230, 184, 92, 0.25);
-      margin-bottom: 2.5rem;
-    }
-
-    .hero-tagline {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.19em;
-      color: #b18116;
-      margin-bottom: 0.6rem;
-    }
-
-    .hero-heading {
-      font-size: 2.1rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .hero-subtext {
-      font-size: 0.98rem;
-      color: #7b6632;
-      max-width: 640px;
-      line-height: 1.7;
       margin-bottom: 0.8rem;
     }
 
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      font-size: 0.9rem;
+    .section-intro {
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+      color: var(--text-muted);
+      line-height: 1.6;
     }
 
-    .hero-pill {
-      background: #fffaf0;
-      border-radius: 999px;
-      padding: 0.35rem 0.75rem;
-      color: #5c4b1a;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
+    /* About Header Card */
+    #about-card {
+      background: var(--yellow-light);
+      padding: 1.5rem 1.4rem;
+      border-radius: 0.8rem;
+      margin-bottom: 2rem;
     }
 
-    .hero-pill-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #5c4b1a;
+    #about-card h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
     }
 
-    /* Project cards */
+    #about-card p {
+      font-size: 1rem;
+      color: #5c4a22;
+      line-height: 1.6;
+    }
+
+    /* Projects */
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.4rem;
     }
 
     .card {
-      background: #ffffff;
-      padding: 1.3rem 1.3rem 1.1rem;
-      border-radius: 1rem;
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-      position: relative;
-      overflow: hidden;
+      background: white;
+      padding: 1.2rem;
+      border-radius: 0.8rem;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      transition: 0.2s ease;
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top left, rgba(230, 184, 92, 0.2), transparent 55%);
-      opacity: 0.7;
-      pointer-events: none;
-    }
-
-    .card-inner {
-      position: relative;
-      z-index: 1;
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 5px 16px rgba(0,0,0,0.12);
     }
 
     .card-tag {
+      color: var(--yellow);
+      font-weight: 600;
       font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #be8c17;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.3rem;
     }
 
     .card-title {
@@ -316,178 +166,94 @@
     }
 
     .card-body {
-      font-size: 0.9rem;
       color: var(--text-muted);
-      line-height: 1.6;
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
 
     .card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.1rem;
-      margin-top: 0.7rem;
-      font-size: 0.85rem;
+      margin-top: 0.6rem;
+      display: inline-block;
       color: #b18116;
-    }
-
-    .card-link span {
-      font-size: 0.9em;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
-      background: #fffdf4;
+      font-weight: 500;
     }
 
     /* Skills */
     .skills-wrap {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.55rem;
+      gap: 0.5rem;
     }
 
     .skill-tag {
-      padding: 0.4rem 0.75rem;
-      border-radius: 999px;
-      background: var(--bg-soft);
+      padding: 0.35rem 0.7rem;
+      border-radius: 20px;
+      background: var(--yellow-light);
       font-size: 0.85rem;
-      box-shadow: 0 2px 6px rgba(230, 184, 92, 0.2);
-    }
-
-    .skills-highlight {
-      margin-top: 1.3rem;
-      padding: 1rem 1.1rem;
-      border-radius: 1rem;
-      background: #fff8dd;
-      font-size: 0.9rem;
-      color: #7b6632;
-      max-width: 650px;
-    }
-
-    .skills-highlight strong {
-      color: #4f3e10;
+      font-weight: 500;
+      color: #5c4a22;
     }
 
     /* Contact */
     .contact-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+      grid-template-columns: 1fr 1fr;
       gap: 2rem;
-      align-items: flex-start;
     }
 
     .contact-note {
       color: var(--text-muted);
+      font-size: 1rem;
       line-height: 1.7;
-      font-size: 0.95rem;
-    }
-
-    .contact-note strong {
-      color: #b18116;
     }
 
     form {
       display: grid;
-      gap: 0.4rem;
-      background: #fffdf4;
-      padding: 1.4rem 1.3rem;
-      border-radius: 1.2rem;
-      box-shadow: 0 12px 30px rgba(230, 184, 92, 0.25);
+      gap: 0.8rem;
+      background: var(--bg-soft);
+      padding: 1.4rem;
+      border-radius: 0.8rem;
     }
 
     label {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
+      color: #5c4a22;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #b18116;
     }
 
     input,
     textarea {
       width: 100%;
-      padding: 0.7rem 0.8rem;
-      border-radius: 0.7rem;
-      border: none;
-      background: #fff9e8;
+      padding: 0.7rem;
+      background: white;
+      border: 2px solid var(--yellow-light);
+      border-radius: 0.6rem;
       font-size: 0.9rem;
-      margin-bottom: 0.6rem;
-      color: var(--text-dark);
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: rgba(111, 111, 111, 0.75);
     }
 
     input:focus,
     textarea:focus {
-      outline: 2px solid rgba(230, 184, 92, 0.7);
-      background: #fffdf4;
+      outline: none;
+      border-color: var(--yellow);
     }
 
     button {
-      margin-top: 0.4rem;
-      background: var(--accent);
-      color: #3d3112;
+      background: var(--yellow);
       border: none;
-      padding: 0.75rem 1.4rem;
+      padding: 0.8rem 1.2rem;
       border-radius: 999px;
       font-weight: 600;
-      font-size: 0.9rem;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      box-shadow: 0 14px 28px rgba(181, 143, 51, 0.5);
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-    }
-
-    button span {
-      font-size: 0.9em;
+      font-size: 0.9rem;
     }
 
     button:hover {
-      transform: translateY(-2px);
-      background: #f0c96a;
-      box-shadow: 0 18px 34px rgba(181, 143, 51, 0.65);
-    }
-
-    .form-meta {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 0.3rem;
-    }
-
-    .form-meta strong {
-      color: #b18116;
-    }
-
-    /* Footer */
-    .main-footer {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      display: flex;
-      justify-content: space-between;
-      gap: 0.7rem;
-      margin-bottom: 1rem;
-    }
-
-    .main-footer a {
-      color: #b18116;
-      font-weight: 500;
+      background: #d8a84f;
     }
 
     /* Responsive */
-    @media (max-width: 960px) {
-      body {
-        display: block;
-      }
-
-      .page {
-        flex-direction: column;
-      }
-
+    @media (max-width: 900px) {
       .sidebar {
         display: none;
       }
@@ -497,258 +263,138 @@
       }
 
       .content {
-        padding: 2rem 1.6rem 2.6rem;
-      }
-
-      #about-hero {
-        margin-bottom: 2rem;
+        padding: 2rem 1.4rem;
       }
 
       .contact-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    @media (max-width: 540px) {
-      .section-title {
-        font-size: 1.6rem;
-      }
-
-      .hero-heading {
-        font-size: 1.7rem;
-      }
-
-      .main-footer {
-        flex-direction: column;
-        align-items: flex-start;
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="page">
-    <!-- Desktop sidebar -->
-    <aside class="sidebar">
-      <div class="brand">
-        <div class="brand-label">
-          <span class="brand-label-dot"></span>
-          <span>Portfolio</span>
-        </div>
-        <h1>Your Name</h1>
-        <p>Frontend &amp; EduTech Developer</p>
+
+  <!-- Sidebar (desktop) -->
+  <aside class="sidebar">
+    <div class="brand">
+      <h1>Your Name</h1>
+      <p>Frontend Developer</p>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="sidebar-footer">
+      Available for freelance & remote work.
+    </div>
+  </aside>
+
+  <!-- Mobile top bar -->
+  <header class="topbar">
+    <nav class="topbar-nav">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="content">
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div id="about-card">
+        <h2>Hi, I'm Your Name</h2>
+        <p>
+          I build clean, modern, learning-focused interfaces.  
+          I love clarity, typography, and simple, friendly design.
+        </p>
       </div>
 
-      <nav class="sidebar-nav">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <h3 class="section-title">About Me</h3>
+      <p class="section-intro">
+        I specialise in frontend UI development with a focus on education,
+        accessibility and easy-to-use interfaces.
+      </p>
+    </section>
 
-      <div class="sidebar-footer">
-        Available for <span>freelance</span> and <span>remote</span> roles.
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-intro">Some things I've worked on recently.</p>
+
+      <div class="cards-grid">
+
+        <div class="card">
+          <div class="card-tag">Web App</div>
+          <h3 class="card-title">Learning Dashboard</h3>
+          <p class="card-body">A progress dashboard for students with a simple UI and fast performance.</p>
+          <a class="card-link" href="#">View project →</a>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Frontend System</div>
+          <h3 class="card-title">Course Landing Pages</h3>
+          <p class="card-body">A collection of templates for course providers with strong typography.</p>
+          <a class="card-link" href="#">View project →</a>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">UI Lab</div>
+          <h3 class="card-title">Micro Interactions</h3>
+          <p class="card-body">Animations and components designed for clarity and friendliness.</p>
+          <a class="card-link" href="#">View project →</a>
+        </div>
+
       </div>
-    </aside>
+    </section>
 
-    <!-- Mobile top bar -->
-    <header class="topbar">
-      <div class="topbar-inner">
-        <div class="topbar-title">
-          <span>Your Name</span>
-          <span class="topbar-pill">Portfolio</span>
-        </div>
-        <nav class="topbar-nav">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
-        </nav>
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-intro">Tools and technologies I work with regularly.</p>
+
+      <div class="skills-wrap">
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Accessibility</span>
+        <span class="skill-tag">Next.js</span>
       </div>
-    </header>
+    </section>
 
-    <!-- Main content -->
-    <main class="content">
-      <!-- About -->
-      <section id="about">
-        <div id="about-hero">
-          <p class="hero-tagline">Design-led frontend development</p>
-          <h2 class="hero-heading">I build bright, clear interfaces for learning and the web.</h2>
-          <p class="hero-subtext">
-            I’m a frontend developer with a focus on education, clean layouts and approachable UX.
-            I like building products that feel friendly, fast and easy to understand.
-          </p>
-          <div class="hero-meta">
-            <div class="hero-pill">
-              <span class="hero-pill-dot"></span>
-              Based in Your City
-            </div>
-            <div class="hero-pill">
-              <span class="hero-pill-dot"></span>
-              Open to collaboration
-            </div>
-          </div>
-        </div>
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
 
-        <p class="section-label">About</p>
-        <h3 class="section-title">A bit more about me</h3>
-        <p class="section-intro">
-          I enjoy working end-to-end on frontend projects: from sketching out flows, to building responsive
-          layouts, to polishing the small details that make an experience feel considered.
-        </p>
-      </section>
-
-      <!-- Projects -->
-      <section id="projects">
-        <p class="section-label">Projects</p>
-        <h2 class="section-title">Selected work</h2>
-        <p class="section-intro">
-          A few projects that show how I think about structure, clarity and interaction. You can link these
-          to GitHub repos, live demos or case studies.
+      <div class="contact-grid">
+        <p class="contact-note">
+          Want to work together? Email me at <strong>you@example.com</strong> or send a message below.
         </p>
 
-        <div class="cards-grid">
-          <article class="card">
-            <div class="card-inner">
-              <div class="card-tag">Web app</div>
-              <h3 class="card-title">Interactive Learning Dashboard</h3>
-              <p class="card-body">
-                A responsive dashboard that helps students track progress, streaks and goals across courses.
-                Focused on readable data, friendly colours and clear calls to action.
-              </p>
-              <a class="card-link" href="#" target="_blank" rel="noopener noreferrer">
-                View project <span>↗</span>
-              </a>
-            </div>
-          </article>
+        <form action="#" method="post">
+          <label>Name</label>
+          <input type="text" placeholder="Your name">
 
-          <article class="card">
-            <div class="card-inner">
-              <div class="card-tag">Frontend system</div>
-              <h3 class="card-title">Course Landing Templates</h3>
-              <p class="card-body">
-                A small design system for course sales pages, built for quick iteration, strong typography
-                and consistent patterns across multiple subjects and audiences.
-              </p>
-              <a class="card-link" href="#" target="_blank" rel="noopener noreferrer">
-                View project <span>↗</span>
-              </a>
-            </div>
-          </article>
+          <label>Email</label>
+          <input type="email" placeholder="you@example.com">
 
-          <article class="card">
-            <div class="card-inner">
-              <div class="card-tag">UI lab</div>
-              <h3 class="card-title">Micro Interactions Collection</h3>
-              <p class="card-body">
-                A collection of buttons, loaders, tooltips and onboarding flows exploring small, welcoming
-                animations that still feel calm and accessible.
-              </p>
-              <a class="card-link" href="#" target="_blank" rel="noopener noreferrer">
-                View project <span>↗</span>
-              </a>
-            </div>
-          </article>
-        </div>
-      </section>
+          <label>Message</label>
+          <textarea rows="4" placeholder="Tell me about your project..."></textarea>
 
-      <!-- Skills -->
-      <section id="skills">
-        <p class="section-label">Skills</p>
-        <h2 class="section-title">What I work with</h2>
-        <p class="section-intro">
-          I focus on modern frontend tools with an emphasis on maintainable code, accessibility and
-          thoughtful visual design.
-        </p>
+          <button>Send Message</button>
+        </form>
+      </div>
 
-        <div class="skills-wrap">
-          <span class="skill-tag">HTML5</span>
-          <span class="skill-tag">CSS / SCSS</span>
-          <span class="skill-tag">JavaScript (ES6+)</span>
-          <span class="skill-tag">TypeScript</span>
-          <span class="skill-tag">React</span>
-          <span class="skill-tag">Responsive design</span>
-          <span class="skill-tag">Accessibility (a11y)</span>
-          <span class="skill-tag">Next.js</span>
-          <span class="skill-tag">Tailwind CSS</span>
-          <span class="skill-tag">Figma</span>
-          <span class="skill-tag">Git / GitHub</span>
-        </div>
+    </section>
 
-        <div class="skills-highlight">
-          I’m especially comfortable taking designs from Figma into polished, production-ready interfaces,
-          and pairing with designers, PMs and educators to keep everything clear and learner-friendly.
-          <strong>Education products</strong> and <strong>learning tools</strong> are where I’m happiest.
-        </div>
-      </section>
+  </main>
 
-      <!-- Contact -->
-      <section id="contact">
-        <p class="section-label">Contact</p>
-        <h2 class="section-title">Let’s work together</h2>
-
-        <div class="contact-grid">
-          <div>
-            <p class="contact-note">
-              The easiest way to reach me is by email at <strong>you@example.com</strong>, but you can also use
-              this form to share a bit about what you’d like to build.
-            </p>
-            <p class="contact-note" style="margin-top: 0.8rem;">
-              I’m particularly interested in projects around <strong>education</strong>,
-              <strong>learning platforms</strong> and <strong>developer-facing tools</strong>.
-            </p>
-          </div>
-
-          <!-- Replace action with your form handler (e.g. Formspree) or leave as "#" for now -->
-          <form action="#" method="post">
-            <div>
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" placeholder="Your name" />
-            </div>
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" />
-            </div>
-            <div>
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="4" placeholder="Tell me a little about your project..."></textarea>
-            </div>
-            <button type="submit">
-              Send message <span>↗</span>
-            </button>
-            <p class="form-meta">
-              Prefer direct email? Contact me at <strong>you@example.com</strong>.
-            </p>
-          </form>
-        </div>
-      </section>
-
-      <footer class="main-footer">
-        <span>© <span id="year"></span> Your Name.</span>
-        <span>
-          Built for <a href="https://pages.github.com" target="_blank" rel="noopener noreferrer">GitHub Pages</a>.
-        </span>
-      </footer>
-    </main>
-  </div>
-
-  <script>
-    // year in footer
-    document.getElementById("year").textContent =
-      new Date().getFullYear().toString();
-
-    // smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-      anchor.addEventListener("click", function (e) {
-        var targetId = this.getAttribute("href").slice(1);
-        var target = document.getElementById(targetId);
-        if (!target) return;
-        e.preventDefault();
-        window.scrollTo({
-          top: target.offsetTop - 70,
-          behavior: "smooth",
-        });
-      });
-    });
-  </script>
 </body>
 </html>
