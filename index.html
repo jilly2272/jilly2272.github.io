@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -144,13 +145,13 @@
       background: white;
       padding: 1.2rem;
       border-radius: 0.8rem;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
       transition: 0.2s ease;
     }
 
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 5px 16px rgba(0,0,0,0.12);
+      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.12);
     }
 
     .card-tag {
@@ -315,27 +316,50 @@
 
       <h3 class="section-title">About Me</h3>
       <p class="section-intro">
-        Programmers and narrative writers have nothing in common. One is a technical discipline that utilises logic, while the other is artistic and is built on emotion. Programmers aren't creative, and writers aren't technical - right?
-        
-        I have always considered myself to be a creative and technical person. Growing up in my home country of Azerbaijan, I loved science just as much as the arts, so I found myself in a difficult position when deciding what I wanted to study at university. Meanwhile, I started falling in love with gaming (tabletop and digital), so I thankfully didn't have to choose one field over the other as I studied a BSc in Interactive Media where I learnt to program and design video games.
-        
-        In terms of my technical experience, I have 3 years of C# .NET and Unity, predominately with UI, feature development, and QA and testing in a mobile (IOS and Android) and desktop app. On the writing front, I have created close to 1000 cards for board games, written pitch documents and scripts for a video game writing course, and published an online puzzle escape room!
-        
-        To answer my initial question, I don't think programming and writing are that different. Programming requires creativity to solve complex or unique problems while writing and design require critical thinking to construct clear and satisfying narratives.
-        
-        Together, they offer a unique lens through which to examine projects, and I want to share my experience with you. If you need someone who can think outside the box and likes to solve problems, get in touch and check out my portfolio!
+        Programmers and narrative writers have nothing in common. One is a technical discipline that utilises logic,
+        while the other is artistic and is built on emotion. Programmers aren't creative, and writers aren't technical -
+        right?\n\n
+
+        I have always considered myself to be a creative and technical person. Growing up in my home country of
+        Azerbaijan, I loved science just as much as the arts, so I found myself in a difficult position when deciding
+        what I wanted to study at university. Meanwhile, I started falling in love with gaming (tabletop and digital),
+        so I thankfully didn't have to choose one field over the other as I studied a BSc in Interactive Media where I
+        learnt to program and design video games.\n\n
+
+        In terms of my technical experience, I have 3 years of C# .NET and Unity, predominately with UI, feature
+        development, and QA and testing in a mobile (IOS and Android) and desktop app. On the writing front, I have
+        created close to 1000 cards for board games, written pitch documents and scripts for a video game writing
+        course, and published an online puzzle escape room!\n\n
+
+        To answer my initial question, I don't think programming and writing are that different. Programming requires
+        creativity to solve complex or unique problems while writing and design require critical thinking to construct
+        clear and satisfying narratives.\n\n
+
+        Together, they offer a unique lens through which to examine projects, and I want to share my experience with
+        you. If you need someone who can think outside the box and likes to solve problems, get in touch and check out
+        my portfolio!
       </p>
     </section>
 
     <!-- PROJECTS -->
     <section id="projects">
       <h2 class="section-title">Projects</h2>
-      <p class="section-intro">Some things I've worked on recently.</p>
+      <p class="section-intro">A selection of my technical and creative work.</p>
+
+      <!-- TECHNICAL PROJECTS -->
+      <h3 style="
+      font-size: 1.4rem; 
+      margin: 2rem 0 1rem; 
+      color: var(--text-dark); 
+      font-weight: 700;
+    ">
+        Technical Projects
+      </h3>
 
       <div class="cards-grid">
 
         <div class="card">
-          <div class="card-tag">Web App</div>
+          <div class="card-tag">Unity / C#</div>
           <h3 class="card-title">Learning Dashboard</h3>
           <p class="card-body">A progress dashboard for students with a simple UI and fast performance.</p>
           <a class="card-link" href="#">View project →</a>
@@ -356,7 +380,43 @@
         </div>
 
       </div>
+
+      <!-- CREATIVE PROJECTS -->
+      <h3 style="
+      font-size: 1.4rem; 
+      margin: 2rem 0 1rem; 
+      color: var(--text-dark); 
+      font-weight: 700;
+    ">
+        Creative Projects
+      </h3>
+
+      <div class="cards-grid">
+
+        <div class="card">
+          <div class="card-tag">Writing</div>
+          <h3 class="card-title">Board Game Cards</h3>
+          <p class="card-body">Over 1,000 narrative and mechanical cards written for tabletop games.</p>
+          <a class="card-link" href="#">View project →</a>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Narrative Design</div>
+          <h3 class="card-title">Pitch Documents & Scripts</h3>
+          <p class="card-body">Story structures, character arcs, and in-game scripts for narrative courses.</p>
+          <a class="card-link" href="#">View project →</a>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Game Design</div>
+          <h3 class="card-title">Online Puzzle Escape Room</h3>
+          <p class="card-body">A fully written and designed interactive escape experience.</p>
+          <a class="card-link" href="#">View project →</a>
+        </div>
+
+      </div>
     </section>
+
 
     <!-- SKILLS -->
     <section id="skills">
@@ -364,14 +424,13 @@
       <p class="section-intro">Tools and technologies I work with regularly.</p>
 
       <div class="skills-wrap">
-        <span class="skill-tag">HTML</span>
-        <span class="skill-tag">CSS</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">React</span>
-        <span class="skill-tag">TypeScript</span>
-        <span class="skill-tag">Figma</span>
-        <span class="skill-tag">Accessibility</span>
-        <span class="skill-tag">Next.js</span>
+        <span class="skill-tag">C#</span>
+        <span class="skill-tag">Unity</span>
+        <span class="skill-tag">.NET Core</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Agile Development</span>
+        <span class="skill-tag">Creative writing</span>
+        <span class="skill-tag">Game/narrative design</span>
       </div>
     </section>
 
@@ -379,12 +438,19 @@
     <section id="contact">
       <h2 class="section-title">Contact</h2>
 
-      <div class="contact-grid">
+      <div class="contact-grid" style="display: block;">
         <p class="contact-note">
           Interested in working with me? Send a message below.
         </p>
 
-        <form action="#" method="post">
+        <form action="#" method="post" style="
+      display: grid;
+      gap: 0.8rem;
+      background: var(--bg-soft);
+      padding: 1.4rem;
+      border-radius: 0.8rem;
+      margin-top: 1.5rem;
+    ">
           <label>Name</label>
           <input type="text" placeholder="Your name">
 
@@ -397,10 +463,7 @@
           <button>Send Message</button>
         </form>
       </div>
-
     </section>
-
   </main>
-
 </body>
 </html>
