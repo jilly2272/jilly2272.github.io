@@ -147,11 +147,30 @@
       border-radius: 0.8rem;
       box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
       transition: 0.2s ease;
+      display: flex;
+      flex-direction: column;
     }
 
     .card:hover {
       transform: translateY(-4px);
       box-shadow: 0 5px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    /* New: image area for each card */
+    .card-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 0.6rem;
+      overflow: hidden;
+      margin-bottom: 0.75rem;
+      background: var(--bg-soft);
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .card-tag {
@@ -170,6 +189,7 @@
       color: var(--text-muted);
       font-size: 0.9rem;
       line-height: 1.5;
+      flex: 1;
     }
 
     .card-link {
@@ -177,6 +197,11 @@
       display: inline-block;
       color: #b18116;
       font-weight: 500;
+      text-decoration: none;
+    }
+
+    .card-link:hover {
+      text-decoration: underline;
     }
 
     /* Skills */
@@ -288,9 +313,6 @@
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
-    <div class="sidebar-footer">
-      Available for freelance & remote work.
-    </div>
   </aside>
 
   <!-- Mobile top bar -->
@@ -311,6 +333,7 @@
         <h2>Hi, I'm Emily Patterson</h2>
         <p>
           I build scalable UI frameworks and gameplay systems in C# and Unity.
+          I design narratives that blend storytelling and mechanics together.
         </p>
       </div>
 
@@ -357,75 +380,125 @@
 
       <!-- TECHNICAL PROJECTS -->
       <h3 style="
-    font-size: 1.4rem;
-    margin: 2rem 0 2.5rem; 
-    color: var(--text-dark);
-    font-weight: 700;
-  ">
+        font-size: 1.4rem;
+        margin: 2rem 0 2.5rem;
+        color: var(--text-dark);
+        font-weight: 700;
+      ">
         Technical Projects
       </h3>
 
       <div class="cards-grid">
 
+        <!-- Immersify -->
         <div class="card">
-          <div class="card-tag">Unity / C#</div>
-          <h3 class="card-title">Learning Dashboard</h3>
-          <p class="card-body">A progress dashboard for students with a simple UI and fast performance.</p>
-          <a class="card-link" href="#">View project →</a>
+          <div class="card-image">
+            <!-- Replace with your own thumbnail -->
+            <img src="images/placeholder.png" alt="Immersify healthcare learning app screenshot">
+          </div>
+          <div class="card-tag">Unity / C# · EdTech</div>
+          <h3 class="card-title">Immersify</h3>
+          <p class="card-body">
+            An educational app for healthcare students, where I build Unity gameplay, UI and interactive simulations
+            across mobile platforms.
+          </p>
+          <a class="card-link" href="https://emily010301.wixsite.com/epatterson-portfolio/immersify" target="_blank"
+            rel="noopener noreferrer">View project →</a>
         </div>
 
+        <!-- Primary Directive -->
         <div class="card">
-          <div class="card-tag">Frontend System</div>
-          <h3 class="card-title">Course Landing Pages</h3>
-          <p class="card-body">A collection of templates for course providers with strong typography.</p>
-          <a class="card-link" href="#">View project →</a>
+          <div class="card-image">
+            <img src="images/placeholder.png" alt="Primary Directive Mars rover UI">
+          </div>
+          <div class="card-tag">Unity / C# · Game Design</div>
+          <h3 class="card-title">Primary Directive</h3>
+          <p class="card-body">
+            A first-person Mars rover survival prototype focused on UI-driven resource management and mission mini-games
+            to search for water.
+          </p>
+          <a class="card-link" href="https://emily010301.wixsite.com/epatterson-portfolio/primary-directive"
+            target="_blank" rel="noopener noreferrer">View project →</a>
         </div>
 
+        <!-- Mousecapade -->
         <div class="card">
-          <div class="card-tag">UI Lab</div>
-          <h3 class="card-title">Micro Interactions</h3>
-          <p class="card-body">Animations and components designed for clarity and friendliness.</p>
-          <a class="card-link" href="#">View project →</a>
+          <div class="card-image">
+            <img src="images/placeholder.png" alt="Mousecapade first-person kitchen level">
+          </div>
+          <div class="card-tag">Unity / C# · Gameplay</div>
+          <h3 class="card-title">Mousecapade</h3>
+          <p class="card-body">
+            A first-person platformer for children where you play as a mouse, using movement, AI, UI and sound design to
+            reach a towering cheese wheel.
+          </p>
+          <a class="card-link" href="https://emily010301.wixsite.com/epatterson-portfolio/mousecapade" target="_blank"
+            rel="noopener noreferrer">View project →</a>
         </div>
 
       </div>
 
       <!-- CREATIVE PROJECTS -->
       <h3 style="
-    font-size: 1.4rem;
-    margin: 2rem 0 2.5rem; 
-    color: var(--text-dark);
-    font-weight: 700;
-  ">
+        font-size: 1.4rem;
+        margin: 2rem 0 2.5rem;
+        color: var(--text-dark);
+        font-weight: 700;
+      ">
         Creative Projects
       </h3>
 
       <div class="cards-grid">
 
+        <!-- The Night Witches -->
         <div class="card">
-          <div class="card-tag">Writing</div>
-          <h3 class="card-title">Board Game Cards</h3>
-          <p class="card-body">Over 1,000 narrative and mechanical cards written for tabletop games.</p>
-          <a class="card-link" href="#">View project →</a>
-        </div>
-
-        <div class="card">
+          <div class="card-image">
+            <img src="images/placeholder.png" alt="The Night Witches narrative pitch art">
+          </div>
           <div class="card-tag">Narrative Design</div>
-          <h3 class="card-title">Pitch Documents & Scripts</h3>
-          <p class="card-body">Story structures, character arcs, and in-game scripts for narrative courses.</p>
-          <a class="card-link" href="#">View project →</a>
+          <h3 class="card-title">The Night Witches</h3>
+          <p class="card-body">
+            A story-driven pitch putting players in the cockpit of the 588th Night Bomber Regiment, exploring friendship,
+            duty and WWII aerial combat.
+          </p>
+          <a class="card-link"
+            href="https://emily010301.wixsite.com/epatterson-portfolio/copy-of-hen-party"
+            target="_blank" rel="noopener noreferrer">View project →</a>
         </div>
 
+        <!-- Hen Party -->
         <div class="card">
-          <div class="card-tag">Game Design</div>
+          <div class="card-image">
+            <img src="images/placeholder.png" alt="Hen Party card game box and cards">
+          </div>
+          <div class="card-tag">Copywriting · Game Design</div>
+          <h3 class="card-title">Hen Party</h3>
+          <p class="card-body">
+            An adult party card game for bridal parties where I helped shape the mechanics and wrote 60+ playful task
+            and forfeit cards.
+          </p>
+          <a class="card-link" href="https://emily010301.wixsite.com/epatterson-portfolio/hen-party" target="_blank"
+            rel="noopener noreferrer">View project →</a>
+        </div>
+
+        <!-- Online Puzzle Escape Room -->
+        <div class="card">
+          <div class="card-image">
+            <img src="images/placeholder.png" alt="Online puzzle escape room page">
+          </div>
+          <div class="card-tag">Writing · Game / Puzzle Design</div>
           <h3 class="card-title">Online Puzzle Escape Room</h3>
-          <p class="card-body">A fully written and designed interactive escape experience.</p>
-          <a class="card-link" href="#">View project →</a>
+          <p class="card-body">
+            A biology-themed online escape room for prospective students, combining story, hidden clues and PDF puzzles
+            to reveal a secret society.
+          </p>
+          <a class="card-link"
+            href="https://emily010301.wixsite.com/epatterson-portfolio/online-puzzle-escape-room"
+            target="_blank" rel="noopener noreferrer">View project →</a>
         </div>
 
       </div>
     </section>
-
 
     <!-- SKILLS -->
     <section id="skills">
@@ -453,13 +526,13 @@
         </p>
 
         <form action="#" method="post" style="
-      display: grid;
-      gap: 0.8rem;
-      background: var(--bg-soft);
-      padding: 1.4rem;
-      border-radius: 0.8rem;
-      margin-top: 1.5rem;
-    ">
+          display: grid;
+          gap: 0.8rem;
+          background: var(--bg-soft);
+          padding: 1.4rem;
+          border-radius: 0.8rem;
+          margin-top: 1.5rem;
+        ">
           <label>Name</label>
           <input type="text" placeholder="Your name">
 
