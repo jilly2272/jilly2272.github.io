@@ -156,7 +156,6 @@
       box-shadow: 0 5px 16px rgba(0, 0, 0, 0.12);
     }
 
-    /* New: image area for each card */
     .card-image {
       width: 100%;
       aspect-ratio: 16 / 9;
@@ -171,13 +170,6 @@
       height: 100%;
       object-fit: cover;
       display: block;
-    }
-
-    .card-tag {
-      color: var(--yellow);
-      font-weight: 600;
-      font-size: 0.8rem;
-      margin-bottom: 0.3rem;
     }
 
     .card-title {
@@ -308,22 +300,47 @@
       <p>C# Unity Developer</p>
     </div>
     <nav class="sidebar-nav">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
+      <a href="#about">
+        <span style="display:inline-block; width:1.4rem; text-align:center; margin-right:0.4rem;">🏠</span>
+        About
+      </a>
+      <a href="#skills">
+        <span style="display:inline-block; width:1.4rem; text-align:center; margin-right:0.4rem;">🧰</span>
+        Skills
+      </a>
+      <a href="#projects">
+        <span style="display:inline-block; width:1.4rem; text-align:center; margin-right:0.4rem;">💻</span>
+        Projects
+      </a>
+      <a href="#contact">
+        <span style="display:inline-block; width:1.4rem; text-align:center; margin-right:0.4rem;">✉️</span>
+        Contact
+      </a>
     </nav>
   </aside>
 
   <!-- Mobile top bar -->
   <header class="topbar">
-    <nav class="topbar-nav">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
+    <nav class="topbar-nav" style="display:flex; align-items:center;">
+      <a href="#about"
+        style="display:flex; align-items:center; margin-right:1rem; text-decoration:none; color:#2b2b2b; font-weight:500;">
+        <span style="margin-right:0.3rem;">🏠</span> About
+      </a>
+      <a href="#skills"
+        style="display:flex; align-items:center; margin-right:1rem; text-decoration:none; color:#2b2b2b; font-weight:500;">
+        <span style="margin-right:0.3rem;">🧰</span> Skills
+      </a>
+      <a href="#projects"
+        style="display:flex; align-items:center; margin-right:1rem; text-decoration:none; color:#2b2b2b; font-weight:500;">
+        <span style="margin-right:0.3rem;">💻</span> Projects
+      </a>
+      <a href="#contact"
+        style="display:flex; align-items:center; margin-right:1rem; text-decoration:none; color:#2b2b2b; font-weight:500;">
+        <span style="margin-right:0.3rem;">✉️</span> Contact
+      </a>
     </nav>
   </header>
+
 
   <main class="content">
 
@@ -373,6 +390,23 @@
       </p>
     </section>
 
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-intro">Tools and technologies I work with regularly.</p>
+
+      <div class="skills-wrap">
+        <span class="skill-tag">C#</span>
+        <span class="skill-tag">Unity</span>
+        <span class="skill-tag">.NET Core</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Agile Development</span>
+        <span class="skill-tag">Creative writing</span>
+        <span class="skill-tag">Game/narrative design</span>
+        <span class="skill-tag">Copywriting</span>
+      </div>
+    </section>
+
     <!-- PROJECTS -->
     <section id="projects">
       <h2 class="section-title">Projects</h2>
@@ -393,10 +427,23 @@
         <!-- Immersify -->
         <div class="card">
           <div class="card-image">
-            <!-- Replace with your own thumbnail -->
             <img src="images/placeholder.png" alt="Immersify healthcare learning app screenshot">
           </div>
-          <div class="card-tag">Unity / C# · EdTech</div>
+          <!-- inline skill tags instead of card-tag -->
+          <div style="margin-bottom:0.6rem; display:flex; flex-wrap:wrap; gap:0.35rem;">
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Unity</span>
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">C#</span>
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">UI
+              Systems</span>
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Mobile
+              (iOS/Android)</span>
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">EdTech</span>
+          </div>
           <h3 class="card-title">Immersify</h3>
           <p class="card-body">
             An educational app for healthcare students, where I build Unity gameplay, UI and interactive simulations
@@ -411,7 +458,18 @@
           <div class="card-image">
             <img src="images/placeholder.png" alt="Primary Directive Mars rover UI">
           </div>
-          <div class="card-tag">Unity / C# · Game Design</div>
+          <div style="margin-bottom:0.6rem; display:flex; flex-wrap:wrap; gap:0.35rem;">
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Unity</span>
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">C#</span>
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">UI
+              / HUD Design</span>
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Game
+              Design</span>
+          </div>
           <h3 class="card-title">Primary Directive</h3>
           <p class="card-body">
             A first-person Mars rover survival prototype focused on UI-driven resource management and mission mini-games
@@ -426,7 +484,20 @@
           <div class="card-image">
             <img src="images/placeholder.png" alt="Mousecapade first-person kitchen level">
           </div>
-          <div class="card-tag">Unity / C# · Gameplay</div>
+          <div style="margin-bottom:0.6rem; display:flex; flex-wrap:wrap; gap:0.35rem;">
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Unity</span>
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">C#</span>
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Character
+              Controller</span>
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">AI</span>
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Sound
+              Design</span>
+          </div>
           <h3 class="card-title">Mousecapade</h3>
           <p class="card-body">
             A first-person platformer for children where you play as a mouse, using movement, AI, UI and sound design to
@@ -455,14 +526,24 @@
           <div class="card-image">
             <img src="images/placeholder.png" alt="The Night Witches narrative pitch art">
           </div>
-          <div class="card-tag">Narrative Design</div>
+          <div style="margin-bottom:0.6rem; display:flex; flex-wrap:wrap; gap:0.35rem;">
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Narrative
+              Design</span>
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Game
+              Writing</span>
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Historical
+              Fiction</span>
+          </div>
           <h3 class="card-title">The Night Witches</h3>
           <p class="card-body">
-            A story-driven pitch putting players in the cockpit of the 588th Night Bomber Regiment, exploring friendship,
+            A story-driven pitch putting players in the cockpit of the 588th Night Bomber Regiment, exploring
+            friendship,
             duty and WWII aerial combat.
           </p>
-          <a class="card-link"
-            href="https://emily010301.wixsite.com/epatterson-portfolio/copy-of-hen-party"
+          <a class="card-link" href="https://emily010301.wixsite.com/epatterson-portfolio/copy-of-hen-party"
             target="_blank" rel="noopener noreferrer">View project →</a>
         </div>
 
@@ -471,7 +552,16 @@
           <div class="card-image">
             <img src="images/placeholder.png" alt="Hen Party card game box and cards">
           </div>
-          <div class="card-tag">Copywriting · Game Design</div>
+          <div style="margin-bottom:0.6rem; display:flex; flex-wrap:wrap; gap:0.35rem;">
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Copywriting</span>
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Game
+              Design</span>
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Card
+              Writing</span>
+          </div>
           <h3 class="card-title">Hen Party</h3>
           <p class="card-body">
             An adult party card game for bridal parties where I helped shape the mechanics and wrote 60+ playful task
@@ -486,33 +576,25 @@
           <div class="card-image">
             <img src="images/placeholder.png" alt="Online puzzle escape room page">
           </div>
-          <div class="card-tag">Writing · Game / Puzzle Design</div>
+          <div style="margin-bottom:0.6rem; display:flex; flex-wrap:wrap; gap:0.35rem;">
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Writing</span>
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Puzzle
+              Design</span>
+            <span
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Interactive
+              Fiction</span>
+          </div>
           <h3 class="card-title">Online Puzzle Escape Room</h3>
           <p class="card-body">
             A biology-themed online escape room for prospective students, combining story, hidden clues and PDF puzzles
             to reveal a secret society.
           </p>
-          <a class="card-link"
-            href="https://emily010301.wixsite.com/epatterson-portfolio/online-puzzle-escape-room"
+          <a class="card-link" href="https://emily010301.wixsite.com/epatterson-portfolio/online-puzzle-escape-room"
             target="_blank" rel="noopener noreferrer">View project →</a>
         </div>
 
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills">
-      <h2 class="section-title">Skills</h2>
-      <p class="section-intro">Tools and technologies I work with regularly.</p>
-
-      <div class="skills-wrap">
-        <span class="skill-tag">C#</span>
-        <span class="skill-tag">Unity</span>
-        <span class="skill-tag">.NET Core</span>
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">Agile Development</span>
-        <span class="skill-tag">Creative writing</span>
-        <span class="skill-tag">Game/narrative design</span>
       </div>
     </section>
 
@@ -545,6 +627,27 @@
           <button>Send Message</button>
         </form>
       </div>
+
+      <div style="margin-top:1.5rem; display:flex; gap:1rem;">
+
+        <!-- LinkedIn Icon -->
+        <a href="https://www.linkedin.com/in/emily-patterson-profile/" target="_blank" style="display:inline-flex; justify-content:center; align-items:center;
+            width:42px; height:42px; border-radius:50%; background:var(--yellow-light);
+            box-shadow:0 2px 6px rgba(0,0,0,0.15);">
+          <img src="images/linkedin.svg" alt="LinkedIn"
+           style="width:22px; height:22px; display:block;">
+        </a>
+
+        <!-- GitHub Icon -->
+        <a href="https://github.com/jilly2272" target="_blank" style="display:inline-flex; justify-content:center; align-items:center;
+            width:42px; height:42px; border-radius:50%; background:var(--yellow-light);
+            box-shadow:0 2px 6px rgba(0,0,0,0.15);">
+          <img src="images/github.svg" alt="GitHub"
+           style="width:22px; height:22px; display:block;">
+        </a>
+
+      </div>
+
     </section>
   </main>
 </body>
