@@ -301,37 +301,40 @@
     </div>
 
     <a href="#about"
-      style="display:flex; align-items:center; gap:0.5rem; text-decoration:none; color:#2b2b2b; padding:0.6rem 0;">
+      style="display:flex; align-items:center; text-decoration:none; color:#2b2b2b; padding:0.6rem 0; transition:0.2s;"
+      onmouseover="this.style.transform='translateX(5px)'; this.style.fontWeight='600';"
+      onmouseout="this.style.transform='none'; this.style.fontWeight='400';">
       <img src="images/about.svg" alt="About"
-        style="width:18px; height:18px; display:block; transform:translateY(1px);">
+        style="width:18px; height:18px; margin-right:0.4rem; display:block; transform:translateY(1px);">
       About
     </a>
 
     <a href="#skills"
-      style="display:flex; align-items:center; gap:0.5rem; text-decoration:none; color:#2b2b2b; padding:0.6rem 0;">
+      style="display:flex; align-items:center; text-decoration:none; color:#2b2b2b; padding:0.6rem 0; transition:0.2s;"
+      onmouseover="this.style.transform='translateX(5px)'; this.style.fontWeight='600';"
+      onmouseout="this.style.transform='none'; this.style.fontWeight='400';">
       <img src="images/skills.svg" alt="Skills"
-        style="width:18px; height:18px; display:block; transform:translateY(1px);">
+        style="width:18px; height:18px; margin-right:0.4rem; display:block; transform:translateY(1px);">
       Skills
     </a>
 
     <a href="#projects"
-      style="display:flex; align-items:center; gap:0.5rem; text-decoration:none; color:#2b2b2b; padding:0.6rem 0;">
+      style="display:flex; align-items:center; text-decoration:none; color:#2b2b2b; padding:0.6rem 0; transition:0.2s;"
+      onmouseover="this.style.transform='translateX(5px)'; this.style.fontWeight='600';"
+      onmouseout="this.style.transform='none'; this.style.fontWeight='400';">
       <img src="images/projects.svg" alt="Projects"
-        style="width:18px; height:18px; display:block; transform:translateY(1px);">
+        style="width:18px; height:18px; margin-right:0.4rem; display:block; transform:translateY(1px);">
       Projects
     </a>
 
     <a href="#contact"
-      style="display:flex; align-items:center; gap:0.5rem; text-decoration:none; color:#2b2b2b; padding:0.6rem 0;">
+      style="display:flex; align-items:center; text-decoration:none; color:#2b2b2b; padding:0.6rem 0; transition:0.2s;"
+      onmouseover="this.style.transform='translateX(5px)'; this.style.fontWeight='600';"
+      onmouseout="this.style.transform='none'; this.style.fontWeight='400';">
       <img src="images/contact.svg" alt="Contact"
-        style="width:18px; height:18px; display:block; transform:translateY(1px);">
+        style="width:18px; height:18px; margin-right:0.4rem; display:block; transform:translateY(1px);">
       Contact
     </a>
-
-
-    <div class="sidebar-footer">
-      ©2025 Emily Patterson
-    </div>
 
     <div style="
     margin-top:0.75rem;
@@ -498,339 +501,277 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
     <section id="projects">
-      <h2 class="section-title">Projects</h2>
-      <p class="section-intro">A selection of my technical and creative work.</p>
+      <h2 style="font-size:2rem; margin:3rem 0 0.8rem;">Projects</h2>
+      <p style="font-size:1rem; margin-bottom:1.2rem; color:var(--text-muted); line-height:1.6;">
+        A selection of my technical and creative work.
+      </p>
 
-      <!-- TECHNICAL PROJECTS -->
-      <h3 style="
-        font-size: 1.4rem;
-        margin: 2rem 0 2.5rem;
-        color: var(--text-dark);
-        font-weight: 700;
-      ">
+      <h3 style="font-size:1.4rem; margin:2rem 0 2.5rem; color:var(--text-dark); font-weight:700;">
         Technical Projects
       </h3>
 
-      <div class="cards-grid">
+      <div class="cards-grid"
+        style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:1.4rem;">
 
-        <!-- Immersify -->
-        <div class="card">
+        <div class="card"
+          style="background:white; padding:1.2rem; border-radius:0.8rem; box-shadow:0 3px 12px rgba(0,0,0,0.08); transition:0.2s; display:flex; flex-direction:column;">
           <div style="margin-bottom:0.6rem; display:flex; flex-wrap:wrap; gap:0.35rem;">
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Unity</span>
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500;">Unity</span>
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">C#</span>
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500;">C#</span>
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">UI
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500;">UI
               Systems</span>
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Mobile
-              (iOS/Android)</span>
-            <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">EdTech</span>
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500;">Mobile</span>
           </div>
-
-          <div class="card-image">
-            <img src="images/placeholder.png" alt="Immersify healthcare learning app screenshot">
+          <div class="card-image"
+            style="width:100%; aspect-ratio:16/9; border-radius:0.6rem; overflow:hidden; background:var(--bg-soft); margin-bottom:0.75rem;">
+            <img src="images/placeholder.png" alt="Immersify" style="width:100%; height:100%; object-fit:cover;">
           </div>
-
-          <h3 class="card-title">Immersify</h3>
-          <p class="card-body">
+          <h3 class="card-title" style="font-size:1.1rem; margin-bottom:0.4rem;">Immersify</h3>
+          <p class="card-body" style="font-size:0.9rem; color:var(--text-muted); line-height:1.5;">
             An educational app for healthcare students, where I build Unity gameplay, UI and interactive simulations
-            across mobile platforms.
+            across platforms.
           </p>
           <a class="card-link" href="https://emily010301.wixsite.com/epatterson-portfolio/immersify" target="_blank"
-            rel="noopener noreferrer">View project →</a>
+            style="margin-top:0.6rem; color:#b18116; text-decoration:none;">View project →</a>
         </div>
 
-        <!-- Saida Zargarli -->
-        <div class="card">
+        <div class="card"
+          style="background:white; padding:1.2rem; border-radius:0.8rem; box-shadow:0 3px 12px rgba(0,0,0,0.08); transition:0.2s; display:flex; flex-direction:column;">
           <div style="margin-bottom:0.6rem; display:flex; flex-wrap:wrap; gap:0.35rem;">
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Wix</span>
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500;">Wix</span>
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Web
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500;">Web
               Design</span>
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">UX
-              & IA</span>
-            <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Multilingual</span>
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500;">UX</span>
           </div>
-
-          <div class="card-image">
-            <img src="images/placeholder.png" alt="Saida Zargarli portfolio website">
+          <div class="card-image"
+            style="width:100%; aspect-ratio:16/9; border-radius:0.6rem; overflow:hidden; background:var(--bg-soft); margin-bottom:0.75rem;">
+            <img src="images/placeholder.png" alt="Saida Zargarli" style="width:100%; height:100%; object-fit:cover;">
           </div>
-
-          <h3 class="card-title">Saida Zargarli</h3>
-          <p class="card-body">
-            A multilingual portfolio site for artist Saida Zargarli, combining traditional Azerbaijani motifs with
-            abstract, geometric and architectural styles, built in Wix with attention to UX and copyright protection.
+          <h3 class="card-title" style="font-size:1.1rem; margin-bottom:0.4rem;">Saida Zargarli</h3>
+          <p class="card-body" style="font-size:0.9rem; color:var(--text-muted); line-height:1.5;">
+            A multilingual portfolio site blending Azerbaijani traditional art with modern design, built with Wix and UX
+            principles.
           </p>
           <a class="card-link" href="https://emily010301.wixsite.com/epatterson-portfolio/saida-zargarli"
-            target="_blank" rel="noopener noreferrer">View project →</a>
+            target="_blank" style="margin-top:0.6rem; color:#b18116; text-decoration:none;">View project →</a>
         </div>
 
-        <!-- Primary Directive -->
-        <div class="card">
+        <div class="card"
+          style="background:white; padding:1.2rem; border-radius:0.8rem; box-shadow:0 3px 12px rgba(0,0,0,0.08); transition:0.2s; display:flex; flex-direction:column;">
           <div style="margin-bottom:0.6rem; display:flex; flex-wrap:wrap; gap:0.35rem;">
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Unity</span>
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500;">Unity</span>
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">C#</span>
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500;">C#</span>
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">UI
-              / HUD Design</span>
-            <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Game
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500;">HUD
               Design</span>
           </div>
-
-          <div class="card-image">
-            <img src="images/placeholder.png" alt="Primary Directive Mars rover UI">
+          <div class="card-image"
+            style="width:100%; aspect-ratio:16/9; border-radius:0.6rem; overflow:hidden; background:var(--bg-soft); margin-bottom:0.75rem;">
+            <img src="images/placeholder.png" alt="Primary Directive"
+              style="width:100%; height:100%; object-fit:cover;">
           </div>
-
-          <h3 class="card-title">Primary Directive</h3>
-          <p class="card-body">
-            A first-person Mars rover survival prototype focused on UI-driven resource management and mission mini-games
-            to search for water.
+          <h3 class="card-title" style="font-size:1.1rem; margin-bottom:0.4rem;">Primary Directive</h3>
+          <p class="card-body" style="font-size:0.9rem; color:var(--text-muted); line-height:1.5;">
+            A Mars rover survival prototype focusing on UI-driven resource management and mission mini-games.
           </p>
           <a class="card-link" href="https://emily010301.wixsite.com/epatterson-portfolio/primary-directive"
-            target="_blank" rel="noopener noreferrer">View project →</a>
+            target="_blank" style="margin-top:0.6rem; color:#b18116; text-decoration:none;">View project →</a>
         </div>
 
-        <!-- Mousecapade -->
-        <div class="card">
+        <div class="card"
+          style="background:white; padding:1.2rem; border-radius:0.8rem; box-shadow:0 3px 12px rgba(0,0,0,0.08); transition:0.2s; display:flex; flex-direction:column;">
           <div style="margin-bottom:0.6rem; display:flex; flex-wrap:wrap; gap:0.35rem;">
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Unity</span>
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500;">Unity</span>
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">C#</span>
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500;">C#</span>
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Character
-              Controller</span>
-            <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">AI</span>
-            <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Sound
-              Design</span>
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500;">AI</span>
           </div>
-
-          <div class="card-image">
-            <img src="images/placeholder.png" alt="Mousecapade first-person kitchen level">
+          <div class="card-image"
+            style="width:100%; aspect-ratio:16/9; border-radius:0.6rem; overflow:hidden; background:var(--bg-soft); margin-bottom:0.75rem;">
+            <img src="images/placeholder.png" alt="Mousecapade" style="width:100%; height:100%; object-fit:cover;">
           </div>
-
-          <h3 class="card-title">Mousecapade</h3>
-          <p class="card-body">
-            A first-person platformer for children where you play as a mouse, using movement, AI, UI and sound design to
-            reach a towering cheese wheel.
+          <h3 class="card-title" style="font-size:1.1rem; margin-bottom:0.4rem;">Mousecapade</h3>
+          <p class="card-body" style="font-size:0.9rem; color:var(--text-muted); line-height:1.5;">
+            A first-person platformer where you play as a mouse navigating a giant kitchen full of hazards.
           </p>
           <a class="card-link" href="https://emily010301.wixsite.com/epatterson-portfolio/mousecapade" target="_blank"
-            rel="noopener noreferrer">View project →</a>
+            style="margin-top:0.6rem; color:#b18116; text-decoration:none;">View project →</a>
         </div>
 
-        <!-- Classy -->
-        <div class="card">
+        <div class="card"
+          style="background:white; padding:1.2rem; border-radius:0.8rem; box-shadow:0 3px 12px rgba(0,0,0,0.08); transition:0.2s; display:flex; flex-direction:column;">
           <div style="margin-bottom:0.6rem; display:flex; flex-wrap:wrap; gap:0.35rem;">
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">UX
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500;">UX
               Design</span>
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Project
-              Management</span>
-            <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">User
-              Research</span>
-            <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Higher
-              Education</span>
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500;">Research</span>
           </div>
-
-          <div class="card-image">
-            <img src="images/placeholder.png" alt="Classy online learning platform interface">
+          <div class="card-image"
+            style="width:100%; aspect-ratio:16/9; border-radius:0.6rem; overflow:hidden; background:var(--bg-soft); margin-bottom:0.75rem;">
+            <img src="images/placeholder.png" alt="Classy" style="width:100%; height:100%; object-fit:cover;">
           </div>
-
-          <h3 class="card-title">Classy</h3>
-          <p class="card-body">
-            An InVision prototype for an online learning platform designed for higher education, where I led project
-            management
-            and user research to shape personas, requirements and UX.
+          <h3 class="card-title" style="font-size:1.1rem; margin-bottom:0.4rem;">Classy</h3>
+          <p class="card-body" style="font-size:0.9rem; color:var(--text-muted); line-height:1.5;">
+            A UX research and prototype project exploring online learning tools for higher education.
           </p>
           <a class="card-link" href="https://emily010301.wixsite.com/epatterson-portfolio/classy" target="_blank"
-            rel="noopener noreferrer">View project →</a>
+            style="margin-top:0.6rem; color:#b18116; text-decoration:none;">View project →</a>
         </div>
 
-        <!-- The Wizard's Keep -->
-        <div class="card">
+        <div class="card"
+          style="background:white; padding:1.2rem; border-radius:0.8rem; box-shadow:0 3px 12px rgba(0,0,0,0.08); transition:0.2s; display:flex; flex-direction:column;">
           <div style="margin-bottom:0.6rem; display:flex; flex-wrap:wrap; gap:0.35rem;">
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">HTML5</span>
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500;">HTML5</span>
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">CSS</span>
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500;">CSS</span>
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">JavaScript</span>
-            <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Game
-              Design</span>
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500;">JavaScript</span>
           </div>
-
-          <div class="card-image">
-            <img src="images/placeholder.png" alt="The Wizard's Keep choose your own adventure UI">
+          <div class="card-image"
+            style="width:100%; aspect-ratio:16/9; border-radius:0.6rem; overflow:hidden; background:var(--bg-soft); margin-bottom:0.75rem;">
+            <img src="images/placeholder.png" alt="The Wizard’s Keep"
+              style="width:100%; height:100%; object-fit:cover;">
           </div>
-
-          <h3 class="card-title">The Wizard's Keep</h3>
-          <p class="card-body">
-            A choose-your-own-adventure web game built with HTML, CSS and JavaScript, using validation forms and
-            LocalStorage
-            to personalise the narrative and persist player data.
+          <h3 class="card-title" style="font-size:1.1rem; margin-bottom:0.4rem;">The Wizard’s Keep</h3>
+          <p class="card-body" style="font-size:0.9rem; color:var(--text-muted); line-height:1.5;">
+            A branching-path adventure game using HTML, CSS and JavaScript with player data stored in LocalStorage.
           </p>
           <a class="card-link" href="https://emily010301.wixsite.com/epatterson-portfolio/the-wizard-s-keep"
-            target="_blank" rel="noopener noreferrer">View project →</a>
+            target="_blank" style="margin-top:0.6rem; color:#b18116; text-decoration:none;">View project →</a>
         </div>
 
       </div>
 
+      <h3 style="font-size:1.4rem; margin:2rem 0 2.5rem; color:var(--text-dark); font-weight:700;">
+        Creative Projects
+      </h3>
 
-      <div class="cards-grid">
+      <div class="cards-grid"
+        style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:1.4rem;">
 
-        <!-- The Night Witches -->
-        <div class="card">
+        <div class="card"
+          style="background:white; padding:1.2rem; border-radius:0.8rem; box-shadow:0 3px 12px rgba(0,0,0,0.08);">
           <div style="margin-bottom:0.6rem; display:flex; flex-wrap:wrap; gap:0.35rem;">
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Narrative
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem;">Narrative
               Design</span>
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Game
-              Writing</span>
-            <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Historical
-              Fiction</span>
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem;">Writing</span>
           </div>
-
-          <div class="card-image">
-            <img src="images/placeholder.png" alt="The Night Witches narrative pitch art">
+          <div class="card-image"
+            style="width:100%; aspect-ratio:16/9; border-radius:0.6rem; overflow:hidden; background:var(--bg-soft); margin-bottom:0.75rem;">
+            <img src="images/placeholder.png" alt="Night Witches" style="width:100%; height:100%; object-fit:cover;">
           </div>
-
-          <h3 class="card-title">The Night Witches</h3>
-          <p class="card-body">
-            A story-driven pitch putting players in the cockpit of the 588th Night Bomber Regiment, exploring
-            friendship,
-            duty and WWII aerial combat.
+          <h3 class="card-title" style="font-size:1.1rem; margin-bottom:0.4rem;">The Night Witches</h3>
+          <p class="card-body" style="font-size:0.9rem; color:var(--text-muted); line-height:1.5;">
+            A story-driven pitch following the WWII Soviet night bomber regiment of all-female pilots.
           </p>
           <a class="card-link" href="https://emily010301.wixsite.com/epatterson-portfolio/the-night-witches"
-            target="_blank" rel="noopener noreferrer">View project →</a>
+            target="_blank" style="color:#b18116; text-decoration:none;">View project →</a>
         </div>
 
-        <!-- Hen Party -->
-        <div class="card">
+        <div class="card"
+          style="background:white; padding:1.2rem; border-radius:0.8rem; box-shadow:0 3px 12px rgba(0,0,0,0.08);">
           <div style="margin-bottom:0.6rem; display:flex; flex-wrap:wrap; gap:0.35rem;">
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Copywriting</span>
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem;">Writing</span>
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Game
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem;">Game
               Design</span>
-            <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Card
-              Writing</span>
           </div>
-
-          <div class="card-image">
-            <img src="images/placeholder.png" alt="Hen Party card game box and cards">
+          <div class="card-image"
+            style="width:100%; aspect-ratio:16/9; border-radius:0.6rem; overflow:hidden; background:var(--bg-soft); margin-bottom:0.75rem;">
+            <img src="images/placeholder.png" alt="Hen Party" style="width:100%; height:100%; object-fit:cover;">
           </div>
-
-          <h3 class="card-title">Hen Party</h3>
-          <p class="card-body">
-            An adult party card game for bridal parties where I helped shape the mechanics and wrote 60+ playful task
-            and forfeit cards.
+          <h3 class="card-title" style="font-size:1.1rem; margin-bottom:0.4rem;">Hen Party</h3>
+          <p class="card-body" style="font-size:0.9rem; color:var(--text-muted); line-height:1.5;">
+            An adult party card game where I wrote 60+ challenge and forfeit cards.
           </p>
           <a class="card-link" href="https://emily010301.wixsite.com/epatterson-portfolio/hen-party" target="_blank"
-            rel="noopener noreferrer">View project →</a>
+            style="color:#b18116; text-decoration:none;">View project →</a>
         </div>
 
-        <!-- Brutally Honest -->
-        <div class="card">
+        <div class="card"
+          style="background:white; padding:1.2rem; border-radius:0.8rem; box-shadow:0 3px 12px rgba(0,0,0,0.08);">
           <div style="margin-bottom:0.6rem; display:flex; flex-wrap:wrap; gap:0.35rem;">
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Copywriting</span>
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem;">Writing</span>
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Party
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem;">Party
               Game</span>
-            <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Freelance</span>
           </div>
-
-          <div class="card-image">
-            <img src="images/placeholder.png" alt="Brutally Honest party game box and components">
+          <div class="card-image"
+            style="width:100%; aspect-ratio:16/9; border-radius:0.6rem; overflow:hidden; background:var(--bg-soft); margin-bottom:0.75rem;">
+            <img src="images/placeholder.png" alt="Brutally Honest" style="width:100%; height:100%; object-fit:cover;">
           </div>
-
-          <h3 class="card-title">Brutally Honest</h3>
-          <p class="card-body">
-            An adult party card game where players answer increasingly spicy questions or face disgusting drink
-            forfeits;
-            I wrote 200 cards as a freelance copywriter to support playtesting and iteration.
+          <h3 class="card-title" style="font-size:1.1rem; margin-bottom:0.4rem;">Brutally Honest</h3>
+          <p class="card-body" style="font-size:0.9rem; color:var(--text-muted); line-height:1.5;">
+            A party card game involving bold questions and risk-taking forfeits; I wrote 200 cards for playtesting.
           </p>
           <a class="card-link" href="https://emily010301.wixsite.com/epatterson-portfolio/brutally-honest"
-            target="_blank" rel="noopener noreferrer">View project →</a>
+            target="_blank" style="color:#b18116; text-decoration:none;">View project →</a>
         </div>
 
-        <!-- Online Puzzle Escape Room -->
-        <div class="card">
+        <div class="card"
+          style="background:white; padding:1.2rem; border-radius:0.8rem; box-shadow:0 3px 12px rgba(0,0,0,0.08);">
           <div style="margin-bottom:0.6rem; display:flex; flex-wrap:wrap; gap:0.35rem;">
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Writing</span>
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem;">Writing</span>
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Puzzle
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem;">Puzzle
               Design</span>
-            <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Interactive
-              Fiction</span>
           </div>
-
-          <div class="card-image">
-            <img src="images/placeholder.png" alt="Online puzzle escape room page">
+          <div class="card-image"
+            style="width:100%; aspect-ratio:16/9; border-radius:0.6rem; overflow:hidden; background:var(--bg-soft); margin-bottom:0.75rem;">
+            <img src="images/placeholder.png" alt="Escape Room" style="width:100%; height:100%; object-fit:cover;">
           </div>
-
-          <h3 class="card-title">Online Puzzle Escape Room</h3>
-          <p class="card-body">
-            A biology-themed online escape room for prospective students, combining story, hidden clues and PDF puzzles
-            to reveal a secret society.
+          <h3 class="card-title" style="font-size:1.1rem; margin-bottom:0.4rem;">Online Puzzle Escape Room</h3>
+          <p class="card-body" style="font-size:0.9rem; color:var(--text-muted); line-height:1.5;">
+            A biology-themed narrative escape room with story-driven puzzles and downloadable clues.
           </p>
           <a class="card-link" href="https://emily010301.wixsite.com/epatterson-portfolio/online-puzzle-escape-room"
-            target="_blank" rel="noopener noreferrer">View project →</a>
+            target="_blank" style="color:#b18116; text-decoration:none;">View project →</a>
         </div>
 
-        <!-- Live Interactive Polling Research Paper -->
-        <div class="card">
+        <div class="card"
+          style="background:white; padding:1.2rem; border-radius:0.8rem; box-shadow:0 3px 12px rgba(0,0,0,0.08);">
           <div style="margin-bottom:0.6rem; display:flex; flex-wrap:wrap; gap:0.35rem;">
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Research</span>
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem;">Research</span>
             <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Data
-              Analysis</span>
-            <span
-              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem; font-weight:500; color:#5c4a22;">Academic
-              Writing</span>
+              style="padding:0.35rem 0.7rem; border-radius:20px; background:var(--yellow-light); font-size:0.8rem;">Analysis</span>
           </div>
-
-          <div class="card-image">
-            <img src="images/placeholder.png" alt="Live Interactive Polling research paper cover and webinar slides">
+          <div class="card-image"
+            style="width:100%; aspect-ratio:16/9; border-radius:0.6rem; overflow:hidden; background:var(--bg-soft); margin-bottom:0.75rem;">
+            <img src="images/placeholder.png" alt="Research paper" style="width:100%; height:100%; object-fit:cover;">
           </div>
-
-          <h3 class="card-title">Live Interactive Polling Research Paper</h3>
-          <p class="card-body">
-            An internship research project on using live interactive polling to improve remote learners’ self-efficacy,
-            covering study design, analysis, report writing and presenting findings in webinars.
+          <h3 class="card-title" style="font-size:1.1rem; margin-bottom:0.4rem;">Live Interactive Polling Research Paper
+          </h3>
+          <p class="card-body" style="font-size:0.9rem; color:var(--text-muted); line-height:1.5;">
+            A research study evaluating the effect of live polling on learner engagement and confidence.
           </p>
           <a class="card-link"
             href="https://emily010301.wixsite.com/epatterson-portfolio/live-interactive-polling-research-paper"
-            target="_blank" rel="noopener noreferrer">View project →</a>
+            target="_blank" style="color:#b18116; text-decoration:none;">View project →</a>
         </div>
 
       </div>
-
     </section>
+
 
     <!-- CONTACT -->
     <section id="contact">
