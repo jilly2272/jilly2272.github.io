@@ -1,187 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Project | Emily Patterson</title>
 
   <style>
-    :root{
-      --yellow:#e6b85c;
-      --yellow-light:#f7e2aa;
-      --bg:#ffffff;
-      --bg-soft:#faf8f2;
-      --text-dark:#2b2b2b;
-      --text-muted:#6f6f6f;
+    :root {
+      --yellow: #e6b85c;
+      --yellow-light: #f7e2aa;
+      --bg: #ffffff;
+      --bg-soft: #faf8f2;
+      --text-dark: #2b2b2b;
+      --text-muted: #6f6f6f;
     }
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: system-ui, sans-serif;
-      display:flex;
-      background:var(--bg);
-      color:var(--text-dark);
-      min-height:100vh;
+      display: flex;
+      background: var(--bg);
+      color: var(--text-dark);
+      min-height: 100vh;
     }
 
     /* Sidebar (desktop) */
-    .sidebar{
-      width:250px;
-      background:var(--yellow);
-      color:#2b2b2b;
-      padding:2rem 1.5rem;
-      height:100vh;
-      position:sticky;
-      top:0;
-      display:flex;
-      flex-direction:column;
-      gap:2rem;
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-top: 1.5rem;
     }
-    .brand h1{font-size:1.4rem;font-weight:700;}
-    .brand p{font-size:0.9rem;opacity:0.8;margin-top:0.3rem;}
-    .sidebar a{
-      display:flex;
-      align-items:center;
-      gap:0.5rem;
-      text-decoration:none;
-      color:#2b2b2b;
-      padding:0.6rem 0;
-      transition:0.2s;
+
+    .sidebar-nav a {
+      text-decoration: none;
+      color: inherit;
+      padding: 0.4rem 0;
+      transition: transform 0.2s, font-weight 0.2s;
     }
-    .sidebar a:hover{transform:translateX(5px);font-weight:600;}
-    .sidebar-footer{margin-top:auto;font-size:0.85rem;opacity:0.9;}
+
+    .sidebar-nav a:hover {
+      transform: translateX(5px);
+      font-weight: 600;
+    }
+
+    .sidebar-heading {
+      margin: 0.8rem 0 0.3rem;
+      font-weight: 700;
+    }
+
+    .sidebar {
+      width: 250px;
+      background: var(--yellow);
+      color: #2b2b2b;
+      padding: 2rem 1.5rem;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .brand h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .brand p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-top: 0.3rem;
+    }
+
+    .sidebar a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: #2b2b2b;
+      padding: 0.6rem 0;
+      transition: 0.2s;
+    }
+
+    .sidebar a:hover {
+      transform: translateX(5px);
+      font-weight: 600;
+    }
+
+    .sidebar-footer {
+      margin-top: auto;
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
 
     /* Mobile top bar */
-    .topbar{
-      display:none;
-      background:var(--yellow);
-      padding:0.9rem 1rem;
-      position:sticky;
-      top:0;
-      z-index:50;
-      width:100%;
+    .topbar {
+      display: none;
+      background: var(--yellow);
+      padding: 0.9rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      width: 100%;
     }
-    .topbar a{
-      text-decoration:none;
-      color:#2b2b2b;
-      font-weight:600;
+
+    .topbar a {
+      text-decoration: none;
+      color: #2b2b2b;
+      font-weight: 600;
     }
 
     /* Main content */
-    .content{
-      flex:1;
-      padding:3rem;
-      max-width:900px;
-      margin:0 auto;
+    .content {
+      flex: 1;
+      padding: 3rem;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
-    .title{
-      font-size:2.2rem;
-      margin-bottom:0.9rem;
+    .title {
+      font-size: 2.2rem;
+      margin-bottom: 0.9rem;
     }
 
-    .tags{
-      display:flex;
-      flex-wrap:wrap;
-      gap:0.5rem;
-      margin-bottom:1.4rem;
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.4rem;
     }
-    .tag{
-      padding:0.35rem 0.7rem;
-      border-radius:999px;
-      background:var(--yellow-light);
-      font-size:0.85rem;
-      font-weight:600;
-      color:#5c4a22;
+
+    .tag {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: var(--yellow-light);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #5c4a22;
     }
 
     /* Carousel */
-    .carousel{
-      background:var(--bg-soft);
-      border-radius:0.9rem;
-      padding:1rem;
-      margin-bottom:1.5rem;
+    .carousel {
+      background: var(--bg-soft);
+      border-radius: 0.9rem;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
     }
-    .carousel-frame{
-      position:relative;
-      width:100%;
-      aspect-ratio:16/9;
-      overflow:hidden;
-      border-radius:0.7rem;
-      background:#fff;
-    }
-    .carousel-frame img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:none;
-    }
-    .carousel-frame img.active{display:block;}
 
-    .carousel-controls{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:0.8rem;
-      margin-top:0.9rem;
+    .carousel-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      border-radius: 0.7rem;
+      background: #fff;
     }
-    .btn{
-      border:none;
-      background:var(--yellow);
-      padding:0.65rem 1rem;
-      border-radius:999px;
-      font-weight:700;
-      cursor:pointer;
-      font-size:0.9rem;
-    }
-    .btn:hover{background:#d8a84f;}
 
-    .dots{
-      display:flex;
-      gap:0.45rem;
-      flex-wrap:wrap;
-      justify-content:center;
-      flex:1;
+    .carousel-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
     }
-    .dot{
-      width:10px;height:10px;
-      border-radius:50%;
-      background:#d9d2bf;
-      border:none;
-      cursor:pointer;
+
+    .carousel-frame img.active {
+      display: block;
     }
-    .dot.active{background:#b18116;}
+
+    .carousel-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+      margin-top: 0.9rem;
+    }
+
+    .btn {
+      border: none;
+      background: var(--yellow);
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .btn:hover {
+      background: #d8a84f;
+    }
+
+    .dots {
+      display: flex;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      flex: 1;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #d9d2bf;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background: #b18116;
+    }
 
     /* Description + external buttons */
-    .desc{
-      color:var(--text-muted);
-      line-height:1.7;
-      font-size:1rem;
-      margin-bottom:1.6rem;
-      white-space:pre-line;
+    .desc {
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-size: 1rem;
+      margin-bottom: 1.6rem;
+      white-space: pre-line;
     }
-    .links{
-      display:flex;
-      flex-wrap:wrap;
-      gap:0.8rem;
-    }
-    .link-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      background:var(--yellow-light);
-      color:#5c4a22;
-      border:2px solid var(--yellow);
-      padding:0.65rem 1rem;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:800;
-    }
-    .link-btn:hover{filter:brightness(0.98);}
 
-    @media (max-width:900px){
-      .sidebar{display:none;}
-      .topbar{display:block;}
-      .content{padding:2rem 1.4rem;}
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--yellow-light);
+      color: #5c4a22;
+      border: 2px solid var(--yellow);
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .link-btn:hover {
+      filter: brightness(0.98);
+    }
+
+    @media (max-width:900px) {
+      .sidebar {
+        display: none;
+      }
+
+      .topbar {
+        display: block;
+      }
+
+      .content {
+        padding: 2rem 1.4rem;
+      }
     }
   </style>
 </head>
@@ -190,17 +269,33 @@
 
   <!-- Sidebar (desktop) -->
   <aside class="sidebar">
-    <div class="brand">
-      <h1>Emily Patterson</h1>
-      <p>C# Unity Developer</p>
-    </div>
+    <a href="../index.html#top" class="brand-link" style="text-decoration:none; color:inherit; display:block;">
+      <div class="brand">
+        <h1>Emily Patterson</h1>
+        <p>C# Unity Developer</p>
+      </div>
+    </a>
 
-    <nav>
-      <a href="../index.html">
-        <img src="../images/projects.svg" alt="" style="width:18px;height:18px;">
-        Home / Projects
-      </a>
+
+    <nav class="sidebar-nav">
+
+      <a href="../index.html#top">← Back to main page</a>
+
+      <div class="sidebar-heading">Projects</div>
+
+      <a href="immersify.html">Immersify</a>
+      <a href="saida-zargarli.html">Saida Zargarli</a>
+      <a href="primary-directive.html">Primary Directive</a>
+      <a href="mousecapade.html">Mousecapade</a>
+      <a href="classy.html">Classy</a>
+      <a href="wizards-keep.html">The Wizard's Keep</a>
+      <a href="night-witches.html">The Night Witches</a>
+      <a href="hen-party.html">Hen Party</a>
+      <a href="brutally-honest.html">Brutally Honest</a>
+      <a href="online-puzzle-escape-room.html">Online Puzzle Escape Room</a>
+      <a href="live-interactive-polling-research-paper.html">Live Interactive Polling Research Paper</a>
     </nav>
+
 
     <div class="sidebar-footer">
       © <span id="year"></span>
@@ -244,7 +339,7 @@
         "../images/placeholder.png"
       ],
       description:
-`Write your project description here.
+        `Write your project description here.
 
 You can use multiple paragraphs by leaving blank lines.`,
       // Buttons optional. If empty, nothing shows.
@@ -294,21 +389,21 @@ You can use multiple paragraphs by leaving blank lines.`,
     const imgs = project.images.map((src, i) => {
       const img = document.createElement("img");
       img.src = src;
-      img.alt = `${project.title} screenshot ${i+1}`;
+      img.alt = `${project.title} screenshot ${i + 1}`;
       if (i === 0) img.classList.add("active");
       frame.appendChild(img);
 
       const dot = document.createElement("button");
       dot.className = "dot" + (i === 0 ? " active" : "");
       dot.type = "button";
-      dot.ariaLabel = `Go to image ${i+1}`;
+      dot.ariaLabel = `Go to image ${i + 1}`;
       dot.addEventListener("click", () => show(i));
       dots.appendChild(dot);
 
       return img;
     });
 
-    function show(i){
+    function show(i) {
       index = (i + imgs.length) % imgs.length;
       imgs.forEach((img, j) => img.classList.toggle("active", j === index));
       [...dots.children].forEach((d, j) => d.classList.toggle("active", j === index));
@@ -323,4 +418,5 @@ You can use multiple paragraphs by leaving blank lines.`,
     }
   </script>
 </body>
+
 </html>
