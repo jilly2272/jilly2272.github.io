@@ -41,6 +41,8 @@
       top: 0;
       display: flex;
       flex-direction: column;
+      gap: 2rem;
+      /* IMPORTANT: this is what your index sidebar has */
     }
 
     .brand h1 {
@@ -55,13 +57,6 @@
       margin: 0.3rem 0 0;
     }
 
-    .sidebar-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-      margin-top: 1.5rem;
-    }
-
     .sidebar-nav a {
       display: block;
       padding: 0.6rem 0;
@@ -69,6 +64,7 @@
       text-decoration: none;
       color: #2b2b2b;
       transition: 0.2s;
+      font-weight: 400;
     }
 
     .sidebar-nav a:hover {
@@ -76,17 +72,12 @@
       font-weight: 600;
     }
 
-    .sidebar-heading {
-      margin: 1.2rem 0 0.3rem;
-      font-weight: 700;
-    }
-
     .sidebar-nav a.active {
-      font-weight: 700;
+      font-weight: 600;
       transform: translateX(5px);
     }
 
-    /* Social icons (bottom, match index.html) */
+    /* Social icons at bottom (same as index) */
     .sidebar-social {
       margin-top: auto;
       display: flex;
@@ -275,18 +266,13 @@
   </style>
 </head>
 
+<!-- Active sidebar page -->
 <script>
   (function () {
     const currentPage = location.pathname.split("/").pop();
-    const links = document.querySelectorAll(".sidebar-nav a");
-
-    links.forEach(link => {
-      const href = link.getAttribute("href");
-      if (!href || href.startsWith("..")) return;
-
-      if (href === currentPage) {
-        link.classList.add("active");
-      }
+    document.querySelectorAll(".sidebar-nav a").forEach(a => {
+      const href = a.getAttribute("href");
+      if (href === currentPage) a.classList.add("active");
     });
   })();
 </script>
@@ -296,45 +282,41 @@
   <!-- Sidebar (desktop) -->
   <aside class="sidebar">
 
-    <!-- Clickable brand -> top of main page -->
-    <a href="../index.html#top" class="brand-link" style="text-decoration:none; color:inherit; display:block;">
-      <div class="brand">
-        <h1>Emily Patterson</h1>
-        <p>C# Unity Developer</p>
-      </div>
+  <!-- Clickable brand -> top of main page -->
+  <a href="../index.html#top" class="brand-link" style="text-decoration:none; color:inherit; display:block;">
+    <div class="brand">
+      <h1>Emily Patterson</h1>
+      <p>C# Unity Developer</p>
+    </div>
+  </a>
+
+  <!-- Project links (styled like main page links) -->
+  <div class="sidebar-nav">
+    <a href="immersify.html">Immersify</a>
+    <a href="saida-zargarli.html">Saida Zargarli</a>
+    <a href="primary-directive.html">Primary Directive</a>
+    <a href="mousecapade.html">Mousecapade</a>
+    <a href="classy.html">Classy</a>
+    <a href="wizards-keep.html">The Wizard's Keep</a>
+    <a href="night-witches.html">The Night Witches</a>
+    <a href="hen-party.html">Hen Party</a>
+    <a href="brutally-honest.html">Brutally Honest</a>
+    <a href="online-puzzle-escape-room.html">Online Puzzle Escape Room</a>
+    <a href="live-interactive-polling-research-paper.html">Live Interactive Polling Research Paper</a>
+  </div>
+
+  <!-- Social icons at bottom -->
+  <div class="sidebar-social">
+    <a href="https://www.linkedin.com/in/emily-patterson-profile/" target="_blank" rel="noopener noreferrer">
+      <img src="../images/linkedin.svg" alt="LinkedIn">
     </a>
 
-    <!-- Project nav (styled like main page nav) -->
-    <div class="sidebar-nav">
-      <a href="../index.html#top">← Back to main page</a>
+    <a href="https://github.com/jilly2272" target="_blank" rel="noopener noreferrer">
+      <img src="../images/github.svg" alt="GitHub">
+    </a>
+  </div>
 
-      <div class="sidebar-heading">Projects</div>
-
-      <a href="immersify.html">Immersify</a>
-      <a href="saida-zargarli.html">Saida Zargarli</a>
-      <a href="primary-directive.html">Primary Directive</a>
-      <a href="mousecapade.html">Mousecapade</a>
-      <a href="classy.html">Classy</a>
-      <a href="wizards-keep.html">The Wizard's Keep</a>
-      <a href="night-witches.html">The Night Witches</a>
-      <a href="hen-party.html">Hen Party</a>
-      <a href="brutally-honest.html">Brutally Honest</a>
-      <a href="online-puzzle-escape-room.html">Online Puzzle Escape Room</a>
-      <a href="live-interactive-polling-research-paper.html">Live Interactive Polling Research Paper</a>
-    </div>
-
-    <!-- Social icons at bottom -->
-    <div class="sidebar-social">
-      <a href="https://www.linkedin.com/in/emily-patterson-profile/" target="_blank" rel="noopener noreferrer">
-        <img src="../images/linkedin.svg" alt="LinkedIn">
-      </a>
-
-      <a href="https://github.com/jilly2272" target="_blank" rel="noopener noreferrer">
-        <img src="../images/github.svg" alt="GitHub">
-      </a>
-    </div>
-
-  </aside>
+</aside>
 
   <!-- Mobile top bar -->
   <header class="topbar">
