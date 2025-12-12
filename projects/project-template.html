@@ -30,31 +30,7 @@
       min-height: 100vh;
     }
 
-    /* Sidebar (desktop) */
-    .sidebar-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      margin-top: 1.5rem;
-    }
-
-    .sidebar-nav a {
-      text-decoration: none;
-      color: inherit;
-      padding: 0.4rem 0;
-      transition: transform 0.2s, font-weight 0.2s;
-    }
-
-    .sidebar-nav a:hover {
-      transform: translateX(5px);
-      font-weight: 600;
-    }
-
-    .sidebar-heading {
-      margin: 0.8rem 0 0.3rem;
-      font-weight: 700;
-    }
-
+    /* Sidebar (match index.html) */
     .sidebar {
       width: 250px;
       background: var(--yellow);
@@ -65,39 +41,73 @@
       top: 0;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
     }
 
     .brand h1 {
       font-size: 1.4rem;
       font-weight: 700;
+      margin: 0;
     }
 
     .brand p {
       font-size: 0.9rem;
       opacity: 0.8;
-      margin-top: 0.3rem;
+      margin: 0.3rem 0 0;
     }
 
-    .sidebar a {
+    .sidebar-nav {
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      flex-direction: column;
+      gap: 0.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 0.6rem 0;
+      font-size: 1rem;
       text-decoration: none;
       color: #2b2b2b;
-      padding: 0.6rem 0;
       transition: 0.2s;
     }
 
-    .sidebar a:hover {
+    .sidebar-nav a:hover {
       transform: translateX(5px);
       font-weight: 600;
     }
 
-    .sidebar-footer {
+    .sidebar-heading {
+      margin: 1.2rem 0 0.3rem;
+      font-weight: 700;
+    }
+
+    .sidebar-nav a.active {
+      font-weight: 700;
+      transform: translateX(5px);
+    }
+
+    /* Social icons (bottom, match index.html) */
+    .sidebar-social {
       margin-top: auto;
-      font-size: 0.85rem;
-      opacity: 0.9;
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .sidebar-social a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .sidebar-social img {
+      width: 22px;
+      height: 22px;
+      display: block;
     }
 
     /* Mobile top bar */
@@ -265,10 +275,28 @@
   </style>
 </head>
 
+<script>
+  (function () {
+    const currentPage = location.pathname.split("/").pop();
+    const links = document.querySelectorAll(".sidebar-nav a");
+
+    links.forEach(link => {
+      const href = link.getAttribute("href");
+      if (!href || href.startsWith("..")) return;
+
+      if (href === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  })();
+</script>
+
 <body>
 
   <!-- Sidebar (desktop) -->
   <aside class="sidebar">
+
+    <!-- Clickable brand -> top of main page -->
     <a href="../index.html#top" class="brand-link" style="text-decoration:none; color:inherit; display:block;">
       <div class="brand">
         <h1>Emily Patterson</h1>
@@ -276,8 +304,8 @@
       </div>
     </a>
 
-    <nav class="sidebar-nav">
-
+    <!-- Project nav (styled like main page nav) -->
+    <div class="sidebar-nav">
       <a href="../index.html#top">← Back to main page</a>
 
       <div class="sidebar-heading">Projects</div>
@@ -293,12 +321,19 @@
       <a href="brutally-honest.html">Brutally Honest</a>
       <a href="online-puzzle-escape-room.html">Online Puzzle Escape Room</a>
       <a href="live-interactive-polling-research-paper.html">Live Interactive Polling Research Paper</a>
-    </nav>
-
-
-    <div class="sidebar-footer">
-      © <span id="year"></span>
     </div>
+
+    <!-- Social icons at bottom -->
+    <div class="sidebar-social">
+      <a href="https://www.linkedin.com/in/emily-patterson-profile/" target="_blank" rel="noopener noreferrer">
+        <img src="../images/linkedin.svg" alt="LinkedIn">
+      </a>
+
+      <a href="https://github.com/jilly2272" target="_blank" rel="noopener noreferrer">
+        <img src="../images/github.svg" alt="GitHub">
+      </a>
+    </div>
+
   </aside>
 
   <!-- Mobile top bar -->
