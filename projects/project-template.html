@@ -280,43 +280,58 @@
 <body>
 
   <!-- Sidebar (desktop) -->
-  <aside class="sidebar">
+  <aside
+    style="width:250px; background:#e6b85c; color:#2b2b2b; padding:2rem 1.5rem; height:100vh; position:sticky; top:0; display:flex; flex-direction:column; gap:2rem;">
 
-  <!-- Clickable brand -> top of main page -->
-  <a href="../index.html#top" class="brand-link" style="text-decoration:none; color:inherit; display:block;">
-    <div class="brand">
-      <h1>Emily Patterson</h1>
-      <p>C# Unity Developer</p>
+    <!-- Brand -->
+    <a href="../index.html#top" style="text-decoration:none; color:inherit; display:block;">
+      <div>
+        <h1 style="font-size:1.4rem; font-weight:700; margin:0;">Emily Patterson</h1>
+        <p style="font-size:0.9rem; opacity:0.8; margin:0.3rem 0 0;">C# Unity Developer</p>
+      </div>
+    </a>
+
+    <!-- Projects -->
+    <div style="display:flex; flex-direction:column; gap:0.2rem; margin-top:0.5rem;">
+      <div
+        style="font-size:0.9rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; opacity:0.85; margin-bottom:0.6rem;">
+        Technical Projects
+      </div>
+
+      <!-- Technical links -->
+      <a href="immersify.html"
+        style="display:block; padding:0.5rem 0; text-decoration:none; color:#2b2b2b;">Immersify</a>
+      <a href="saida-zargarli.html" style="display:block; padding:0.5rem 0; text-decoration:none; color:#2b2b2b;">Saida
+        Zargarli</a>
+      <a href="primary-directive.html"
+        style="display:block; padding:0.5rem 0; text-decoration:none; color:#2b2b2b;">Primary Directive</a>
+      <a href="mousecapade.html"
+        style="display:block; padding:0.5rem 0; text-decoration:none; color:#2b2b2b;">Mousecapade</a>
+      <a href="classy.html" style="display:block; padding:0.5rem 0; text-decoration:none; color:#2b2b2b;">Classy</a>
+      <a href="wizards-keep.html" style="display:block; padding:0.5rem 0; text-decoration:none; color:#2b2b2b;">The
+        Wizard's Keep</a>
+
+      <!-- Switch to creative (goes to FIRST creative project page) -->
+      <a href="night-witches.html"
+        style="display:inline-block; margin-top:1rem; text-decoration:none; color:#2b2b2b; font-weight:700;">
+        View Creative Projects →
+      </a>
     </div>
-  </a>
 
-  <!-- Project links (styled like main page links) -->
-  <div class="sidebar-nav">
-    <a href="immersify.html">Immersify</a>
-    <a href="saida-zargarli.html">Saida Zargarli</a>
-    <a href="primary-directive.html">Primary Directive</a>
-    <a href="mousecapade.html">Mousecapade</a>
-    <a href="classy.html">Classy</a>
-    <a href="wizards-keep.html">The Wizard's Keep</a>
-    <a href="night-witches.html">The Night Witches</a>
-    <a href="hen-party.html">Hen Party</a>
-    <a href="brutally-honest.html">Brutally Honest</a>
-    <a href="online-puzzle-escape-room.html">Online Puzzle Escape Room</a>
-    <a href="live-interactive-polling-research-paper.html">Live Interactive Polling Research Paper</a>
-  </div>
+    <!-- Social icons at bottom -->
+    <div style="margin-top:auto; display:flex; gap:0.75rem;">
+      <a href="https://www.linkedin.com/in/emily-patterson-profile/" target="_blank" rel="noopener noreferrer"
+        style="display:inline-flex; justify-content:center; align-items:center; width:42px; height:42px; border-radius:50%; background:#ffffff; box-shadow:0 2px 6px rgba(0,0,0,0.15); text-decoration:none;">
+        <img src="../images/linkedin.svg" alt="LinkedIn" style="width:22px; height:22px; display:block;">
+      </a>
 
-  <!-- Social icons at bottom -->
-  <div class="sidebar-social">
-    <a href="https://www.linkedin.com/in/emily-patterson-profile/" target="_blank" rel="noopener noreferrer">
-      <img src="../images/linkedin.svg" alt="LinkedIn">
-    </a>
+      <a href="https://github.com/jilly2272" target="_blank" rel="noopener noreferrer"
+        style="display:inline-flex; justify-content:center; align-items:center; width:42px; height:42px; border-radius:50%; background:#ffffff; box-shadow:0 2px 6px rgba(0,0,0,0.15); text-decoration:none;">
+        <img src="../images/github.svg" alt="GitHub" style="width:22px; height:22px; display:block;">
+      </a>
+    </div>
 
-    <a href="https://github.com/jilly2272" target="_blank" rel="noopener noreferrer">
-      <img src="../images/github.svg" alt="GitHub">
-    </a>
-  </div>
-
-</aside>
+  </aside>
 
   <!-- Mobile top bar -->
   <header class="topbar">
@@ -332,9 +347,9 @@
       <div class="carousel-frame" id="carouselFrame"></div>
 
       <div class="carousel-controls">
-        <button class="btn" id="prevBtn" type="button">← Prev</button>
+        <button class="btn" id="prevBtn" type="button">←</button>
         <div class="dots" id="dotWrap" aria-label="Carousel dots"></div>
-        <button class="btn" id="nextBtn" type="button">Next →</button>
+        <button class="btn" id="nextBtn" type="button">→</button>
       </div>
     </section>
 
