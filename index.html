@@ -312,15 +312,6 @@
     <!-- NAV LINKS -->
     <div style="display:flex; flex-direction:column; gap:0.2rem; margin-top:1.5rem;">
 
-      <a href="#about"
-        style="display:flex; align-items:center; text-decoration:none; color:#2b2b2b; padding:0.6rem 0; transition:0.2s; font-weight:400;"
-        onmouseover="this.style.transform='translateX(5px)'; this.style.fontWeight='600';"
-        onmouseout="this.style.transform='none'; this.style.fontWeight='400';">
-        <img src="images/about.svg" alt="About"
-          style="width:18px; height:18px; margin-right:0.4rem; display:block; transform:translateY(1px);">
-        About
-      </a>
-
       <a href="#skills"
         style="display:flex; align-items:center; text-decoration:none; color:#2b2b2b; padding:0.6rem 0; transition:0.2s; font-weight:400;"
         onmouseover="this.style.transform='translateX(5px)'; this.style.fontWeight='600';"
@@ -337,6 +328,15 @@
         <img src="images/projects.svg" alt="Projects"
           style="width:18px; height:18px; margin-right:0.4rem; display:block; transform:translateY(1px);">
         Projects
+      </a>
+
+      <a href="#about"
+        style="display:flex; align-items:center; text-decoration:none; color:#2b2b2b; padding:0.6rem 0; transition:0.2s; font-weight:400;"
+        onmouseover="this.style.transform='translateX(5px)'; this.style.fontWeight='600';"
+        onmouseout="this.style.transform='none'; this.style.fontWeight='400';">
+        <img src="images/about.svg" alt="About"
+          style="width:18px; height:18px; margin-right:0.4rem; display:block; transform:translateY(1px);">
+        About
       </a>
 
       <a href="#contact"
@@ -378,20 +378,20 @@
   <!-- Mobile top bar -->
   <header class="topbar">
     <nav class="topbar-nav" style="display:flex; align-items:center; gap:1rem;">
-
-      <a href="#about" style="display:flex; align-items:center; text-decoration:none; color:#2b2b2b;">
-        <img src="images/about.svg" alt="About" style="width:18px; height:18px; margin-right:0.3rem;">
-        About
-      </a>
-
+      
       <a href="#skills" style="display:flex; align-items:center; text-decoration:none; color:#2b2b2b;">
         <img src="images/skills.svg" alt="Skills" style="width:18px; height:18px; margin-right:0.3rem;">
         Skills
       </a>
-
+      
       <a href="#projects" style="display:flex; align-items:center; text-decoration:none; color:#2b2b2b;">
         <img src="images/projects.svg" alt="Projects" style="width:18px; height:18px; margin-right:0.3rem;">
         Projects
+      </a>
+      
+      <a href="#about" style="display:flex; align-items:center; text-decoration:none; color:#2b2b2b;">
+        <img src="images/about.svg" alt="About" style="width:18px; height:18px; margin-right:0.3rem;">
+        About
       </a>
 
       <a href="#contact" style="display:flex; align-items:center; text-decoration:none; color:#2b2b2b;">
@@ -438,53 +438,6 @@
 
 
   <main class="content">
-
-    <!-- ABOUT -->
-    <section id="about">
-      <div id="about-card">
-        <h2>Hi, I'm Emily Patterson</h2>
-        <p>
-          I build scalable UI frameworks and gameplay systems in C# and Unity.
-          I design narratives that blend storytelling and mechanics together.
-        </p>
-      </div>
-
-      <h3 class="section-title">About Me</h3>
-
-      <p class="section-intro">
-        Programmers and narrative writers have nothing in common. One is a technical discipline that utilises logic,
-        while the other is artistic and is built on emotion. Programmers aren't creative, and writers aren't technical -
-        right?
-      </p>
-
-      <p class="section-intro">
-        I have always considered myself to be a creative and technical person. Growing up in my home country of
-        Azerbaijan, I loved science just as much as the arts, so I found myself in a difficult position when deciding
-        what I wanted to study at university. Meanwhile, I started falling in love with gaming (tabletop and digital),
-        so I thankfully didn't have to choose one field over the other as I studied a BSc in Interactive Media where I
-        learnt to program and design video games.
-      </p>
-
-      <p class="section-intro">
-        In terms of my technical experience, I have 3 years of C# .NET and Unity, predominately with UI, feature
-        development, and QA and testing in a mobile (IOS and Android) and desktop app. On the writing front, I have
-        created close to 1000 cards for board games, written pitch documents and scripts for a video game writing
-        course, and published an online puzzle escape room!
-      </p>
-
-      <p class="section-intro">
-        To answer my initial question, I don't think programming and writing are that different. Programming requires
-        creativity to solve complex or unique problems while writing and design require critical thinking to construct
-        clear and satisfying narratives.
-      </p>
-
-      <p class="section-intro">
-        Together, they offer a unique lens through which to examine projects, and I want to share my experience with
-        you. If you need someone who can think outside the box and likes to solve problems, get in touch and check out
-        my portfolio!
-      </p>
-    </section>
-
     <!-- SKILLS -->
     <section id="skills">
       <h2 class="section-title">Skills</h2>
@@ -736,7 +689,51 @@
       </div>
     </section>
 
+    <!-- ABOUT -->
+    <section id="about">
+      <div id="about-card">
+        <h2>Hi, I'm Emily Patterson</h2>
+        <p>
+          I build scalable UI frameworks and gameplay systems in C# and Unity.
+          I design narratives that blend storytelling and mechanics together.
+        </p>
+      </div>
 
+      <h3 class="section-title">About Me</h3>
+
+      <p class="section-intro">
+        Programmers and narrative writers have nothing in common. One is a technical discipline that utilises logic,
+        while the other is artistic and is built on emotion. Programmers aren't creative, and writers aren't technical -
+        right?
+      </p>
+
+      <p class="section-intro">
+        I have always considered myself to be a creative and technical person. Growing up in my home country of
+        Azerbaijan, I loved science just as much as the arts, so I found myself in a difficult position when deciding
+        what I wanted to study at university. Meanwhile, I started falling in love with gaming (tabletop and digital),
+        so I thankfully didn't have to choose one field over the other as I studied a BSc in Interactive Media where I
+        learnt to program and design video games.
+      </p>
+
+      <p class="section-intro">
+        In terms of my technical experience, I have 3 years of C# .NET and Unity, predominately with UI, feature
+        development, and QA and testing in a mobile (IOS and Android) and desktop app. On the writing front, I have
+        created close to 1000 cards for board games, written pitch documents and scripts for a video game writing
+        course, and published an online puzzle escape room!
+      </p>
+
+      <p class="section-intro">
+        To answer my initial question, I don't think programming and writing are that different. Programming requires
+        creativity to solve complex or unique problems while writing and design require critical thinking to construct
+        clear and satisfying narratives.
+      </p>
+
+      <p class="section-intro">
+        Together, they offer a unique lens through which to examine projects, and I want to share my experience with
+        you. If you need someone who can think outside the box and likes to solve problems, get in touch and check out
+        my portfolio!
+      </p>
+    </section>
 
     <!-- CONTACT -->
     <section id="contact">
