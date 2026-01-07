@@ -42,7 +42,6 @@
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      /* IMPORTANT: this is what your index sidebar has */
     }
 
     .brand h1 {
@@ -251,6 +250,98 @@
       filter: brightness(0.98);
     }
 
+    /* ===== PDF section + modal viewer ===== */
+    .pdfs {
+      margin-top: 2rem;
+      background: var(--bg-soft);
+      border-radius: 0.9rem;
+      padding: 1rem;
+    }
+
+    .pdfs-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .pdfs-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .pdf-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #fff;
+      border: 2px solid var(--yellow);
+      border-radius: 999px;
+      padding: 0.55rem 0.9rem;
+      cursor: pointer;
+      font-weight: 800;
+      color: #5c4a22;
+    }
+
+    .pdf-chip:hover {
+      filter: brightness(0.98);
+    }
+
+    .pdf-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+    }
+
+    .pdf-modal[hidden] {
+      display: none;
+    }
+
+    .pdf-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+    }
+
+    .pdf-modal-card {
+      position: relative;
+      margin: 4vh auto;
+      width: min(980px, 92vw);
+      height: 92vh;
+      background: #fff;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pdf-modal-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.8rem 0.9rem;
+      background: var(--yellow-light);
+      border-bottom: 2px solid var(--yellow);
+    }
+
+    .pdf-modal-name {
+      font-weight: 800;
+      color: #5c4a22;
+    }
+
+    .pdf-modal-actions {
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .pdf-modal-frame {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #fff;
+    }
+
     @media (max-width:900px) {
       .sidebar {
         display: none;
@@ -267,7 +358,7 @@
   </style>
 </head>
 
-<!-- Active sidebar page -->
+<!-- Active sidebar page (kept as-is; harmless even if sidebar links aren't in .sidebar-nav) -->
 <script>
   (function () {
     const currentPage = location.pathname.split("/").pop();
@@ -388,9 +479,32 @@
 
     <div class="desc" id="projectDesc"></div>
 
+    <!-- PDFs -->
+    <section class="pdfs" aria-label="Project PDFs">
+      <h2 class="pdfs-title">Read the documents</h2>
+      <div id="pdfList" class="pdfs-list"></div>
+    </section>
+
     <!-- Optional external buttons -->
     <div class="links" id="externalLinks"></div>
   </main>
+
+  <!-- Modal viewer -->
+  <div class="pdf-modal" id="pdfModal" hidden>
+    <div class="pdf-modal-backdrop" id="pdfModalBackdrop"></div>
+
+    <div class="pdf-modal-card" role="dialog" aria-modal="true" aria-label="PDF viewer">
+      <div class="pdf-modal-bar">
+        <div class="pdf-modal-name" id="pdfModalName"></div>
+        <div class="pdf-modal-actions">
+          <button class="btn" type="button" id="pdfModalFullscreen">Fullscreen</button>
+          <button class="btn" type="button" id="pdfModalClose">Close</button>
+        </div>
+      </div>
+
+      <iframe id="pdfModalFrame" class="pdf-modal-frame" title="PDF document"></iframe>
+    </div>
+  </div>
 
   <script>
     // ====== EDIT THIS PER PROJECT ======
@@ -407,7 +521,15 @@ Based on the real Night Witches of WWII, this video game pitch was produced as p
 
 Over 6 weeks, I worked on my skills in video game narrative design and writing. This included learning about the life cycle and implementation of narrative within games, game design and worldbuilding principles, and writing resonant characters, dialogue, cinematics, non-cinematics, missions, quest arcs, activities, and non-linear narratives. Applying what we wrote across eight assessments, I wrote 4 two-to-three-page scripts and a 13-page pitch document for my own game idea: The Night Witches.`,
       // Buttons optional. If empty, nothing shows.
-      buttons: []
+      buttons: [],
+
+      // PDFs (make sure these files exist at these paths on your site)
+      pdfs: [
+        { label: "Narrative Pitch", src: "/pdfs/Night Witches Narrative Pitch.pdf" },
+        { label: "Cinematic Scripts", src: "/pdfs/Night Witches Cinematic Scripts.pdf" },
+        { label: "Dialogue Script", src: "/pdfs/Night Witches Dialogue Script.pdf" },
+        { label: "Gameplay Script", src: "/pdfs/Night Witches Gameplay Script.pdf" }
+      ]
     };
     // ===================================
 
@@ -455,7 +577,7 @@ Over 6 weeks, I worked on my skills in video game narrative design and writing. 
       const dot = document.createElement("button");
       dot.className = "dot" + (i === 0 ? " active" : "");
       dot.type = "button";
-      dot.ariaLabel = `Go to image ${i + 1}`;
+      dot.setAttribute("aria-label", `Go to image ${i + 1}`);
       dot.addEventListener("click", () => show(i));
       dots.appendChild(dot);
 
@@ -475,6 +597,60 @@ Over 6 weeks, I worked on my skills in video game narrative design and writing. 
     if (imgs.length <= 1) {
       document.querySelector(".carousel-controls").style.display = "none";
     }
+
+    // ===== PDF Viewer List + Modal =====
+    const pdfList = document.getElementById("pdfList");
+    const pdfModal = document.getElementById("pdfModal");
+    const pdfModalFrame = document.getElementById("pdfModalFrame");
+    const pdfModalName = document.getElementById("pdfModalName");
+    const pdfModalClose = document.getElementById("pdfModalClose");
+    const pdfModalBackdrop = document.getElementById("pdfModalBackdrop");
+    const pdfModalFullscreen = document.getElementById("pdfModalFullscreen");
+
+    if (project.pdfs && project.pdfs.length) {
+      project.pdfs.forEach((p) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "pdf-chip";
+        btn.textContent = p.label;
+        btn.addEventListener("click", () => openPdf(p));
+        pdfList.appendChild(btn);
+      });
+    } else {
+      pdfList.textContent = "No PDFs added yet.";
+    }
+
+    function openPdf(p) {
+      // Hide PDF toolbar where supported by the built-in viewer
+      const url = `${p.src}#toolbar=0&navpanes=0&scrollbar=1`;
+
+      pdfModalName.textContent = p.label;
+      pdfModalFrame.src = url;
+      pdfModal.hidden = false;
+
+      // Prevent background scroll while modal open
+      document.body.style.overflow = "hidden";
+    }
+
+    function closePdf() {
+      pdfModal.hidden = true;
+      pdfModalFrame.src = "";
+      document.body.style.overflow = "";
+    }
+
+    pdfModalClose.addEventListener("click", closePdf);
+    pdfModalBackdrop.addEventListener("click", closePdf);
+
+    // Escape key closes
+    document.addEventListener("keydown", (e) => {
+      if (!pdfModal.hidden && e.key === "Escape") closePdf();
+    });
+
+    // Fullscreen button (works in most modern browsers)
+    pdfModalFullscreen.addEventListener("click", () => {
+      const card = pdfModal.querySelector(".pdf-modal-card");
+      if (card.requestFullscreen) card.requestFullscreen();
+    });
   </script>
 </body>
 
